@@ -1,0 +1,178 @@
+body {
+	background: -webkit-linear-gradient(rgb(64, 64, 64), rgb(102, 102, 255));
+	background: -moz-linear-gradient(rgb(64, 64, 64), rgb(102, 102, 255));
+	background: -o-linear-gradient(rgb(64, 64, 64), rgb(102, 102, 255));
+	background: linear-gradient(rgb(64, 64, 64), rgb(102, 102, 255));
+	font-family: Helvetica Serif, Arial;
+	color: rgb(0, 0, 0);
+}
+
+h1 {
+	color: rgb(255, 255, 255);
+	margin: 25px auto 25px auto;
+	font-size: 38px;
+	letter-spacing: 4px;
+	word-spacing: 8px;
+	font-weight: 900;
+	text-align: center;
+}
+
+h2 {
+	color: rgb(255, 255, 255);
+	margin: 15px 25px 15px 25px;
+	font-size: 28px;
+	font-weight: 500;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+article {
+	background-color: rgba(0, 0, 0, 0.6);
+	border: 3px solid rgb(255, 255, 255);
+	border-radius: 25px;
+}
+
+section {
+	margin: 25px 25px 25px 25px;
+	background-color: rgb(165, 42, 42);
+	border: 3px solid rgb(0, 0, 0);
+	border-radius: 25px;
+}
+
+section p {
+	margin: 15px 15px 35px 25px;
+	font-size: 24px;
+}
+
+section ul {
+	margin: 15px 15px 35px 25px;
+	list-style-type: hebrew;
+}
+
+section li {
+	font-size: 24px;
+	color: rgb(255, 255, 255);
+}
+
+.banner {
+	margin-top: 10px;
+	border: 3px solid rgb(255, 255, 255);
+	border-radius: 25px;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.banner img {
+	width: 100%;
+	overflow: hidden;
+	z-index: -1;
+}
+
+.menu {
+	background-color: rgba(0, 0, 0, 0.6);
+	border: 3px solid rgb(255, 255, 255);
+	border-radius: 25px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: rgb(255, 255, 255);
+	font-size: 18px;
+}
+
+.menu-botonera li {
+	font-weight: bolder;
+	letter-spacing: 1px;
+	text-align: center;
+	float: none;
+}
+
+.menu-home {
+	float: left;
+	margin-left: 15px;
+	border-radius: 15px;
+	padding-top: 14px;
+}
+
+.menu-resumen {
+	height: 50px;
+}
+
+.navbar-inverse .navbar-nav > .active > a {
+	color: rgb(165, 42, 42);
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.navbar-inverse .navbar-nav > .active > a:focus {
+	color: rgb(165, 42, 42);
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.navbar-inverse .navbar-nav > .active > a:hover {
+	color: rgb(165, 42, 42);
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+	color: rgb(242, 42, 42);
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.cabecera-seccion {
+	margin: 0;
+	padding: 0;
+}
+
+.tabla-actividades {
+	background-color: rgb(152, 152, 255);
+	border-color: rgb(0, 0, 0);
+	margin-top: 25px;
+}
+
+.tabla-actividades thead tr th {
+	font-size: 24px;
+	font-weight: 800;
+	text-align: center;
+	letter-spacing: 2px;
+	border-color: rgb(0, 0, 0);
+}
+
+.tabla-actividades tbody tr td {
+	border-color: rgb(0, 0, 0);
+	text-align: center;
+}
+
+.galeria img {
+	max-width: 90%;
+	margin: 25px auto 25px auto;
+	border-radius: 40%;
+	border: 2px solid rgb(255, 255, 255);
+	-moz-transition: all 2.5s;
+	-webkit-transition: all 2.5s;
+	-o-transition: all 2.5s;
+	transition: all 2.5s;
+}
+
+.galeria img:hover {
+	cursor: pointer;
+	border-radius: 25px;
+	-moz-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.contacto {
+	width: 90%;
+	margin: 0 auto 25px auto;
+}
+
+.pie-pagina {
+	background-color: rgba(0, 0, 0, 0.6);
+	border: 3px solid rgb(255, 255, 255);
+	color: rgb(255, 255, 255);
+	text-align: center;
+	font-size: 18px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 15px;
+	border-radius: 25px;
+}
