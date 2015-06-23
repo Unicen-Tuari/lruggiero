@@ -128,7 +128,7 @@ section li {
 }
 
 .tabla-actividades thead tr th {
-	font-size: 24px;
+	font-size: 18px;
 	font-weight: 800;
 	text-align: center;
 	letter-spacing: 2px;
@@ -138,6 +138,10 @@ section li {
 .tabla-actividades tbody tr td {
 	border-color: rgb(0, 0, 0);
 	text-align: center;
+}
+
+.tabla-actividades tfoot tr td {
+	border-color: rgb(0, 0, 0);
 }
 
 .galeria img {
