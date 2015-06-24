@@ -1,46 +1,58 @@
-'use strict';
+$(document).ready(function(){
 
-var cuenta = [0, 0, 0, 0, 0, 0];
+	"use strict";
 
-function tirarDados(){
-  cuenta = [0, 0, 0, 0, 0, 0]; 
+// OBJETO DADO Y SUS METODOS
+	function Dado(id){
+		this.id = id;
+	};
 
-  var caraDado1 = Math.floor((Math.random() * 6) + 1);
-  cuenta[caraDado1-1]++;
-  document.getElementById('dado1').src = 'imagenes/cara' + caraDado1 + '.png';
+	Dado.prototype.valor = 6;
 
-  var caraDado2 = Math.floor((Math.random() * 6) + 1);
-  cuenta[caraDado2-1]++;
-  document.getElementById('dado2').src = 'imagenes/cara' + caraDado2 + '.png';
+	Dado.prototype.Tirar = function(){
+		this.valor = Math.floor((Math.random() * 6) + 1);
+		document.getElementById(this.id).src = 'imagenes/cara' + this.valor + '.png';
+	    return this.valor;
+	 };
 
-  var caraDado3 = Math.floor((Math.random() * 6) + 1);
-  cuenta[caraDado3-1]++;
-  document.getElementById('dado3').src = 'imagenes/cara' + caraDado3 + '.png';
+// OBJETO CUBILETE Y SUS METODOS
+	function Cubilete(){
+		this.dado1 = new Dado('dado1');
+		this.dado2 = new Dado('dado2');
+		this.dado3 = new Dado('dado3');
+		this.dado4 = new Dado('dado4');
+		this.dado5 = new Dado('dado5');
+	};
 
-  var caraDado4 = Math.floor((Math.random() * 6) + 1);
-  cuenta[caraDado4-1]++;
-  document.getElementById('dado4').src = 'imagenes/cara' + caraDado4 + '.png';
+	Cubilete.prototype.Tirar = function(){
+		this.dado1.Tirar();
+		this.dado2.Tirar();
+		this.dado3.Tirar();
+		this.dado4.Tirar();
+		this.dado5.Tirar();
+	};
 
-  var caraDado5 = Math.floor((Math.random() * 6) + 1);
-  cuenta[caraDado5-1]++;
-  document.getElementById('dado5').src = 'imagenes/cara' + caraDado5 + '.png';
+// OBJETO TIRADOR Y SUS METODOS
+	function Tirador() {
+		this.cubilete = new Cubilete();
+		this.contador = [0, 0, 0, 0, 0, 0];
+	};
 
-/*  for(var j = 0 ; j < cantidadTiros ; j++){
-    if(){
+	Tirador.prototype.Tirar = function (cantidadTiros){
+		for(var i = 0 ; i < cantidadTiros ; i++){
+			this.cubilete.Tirar();
+		}
+	}
 
-    };
-  }*/
-}
+// SE CREA UN NUEVO TIRADOR
+	var tirador = new Tirador();
 
-function tirarCantidadVeces(cantidadTiros){
-  for(var i = 0 ; i < cantidadTiros ; i++){
-    tirarDados();
-  }
-}
-
-$('#comenzar').on('click', function(event){
-    event.preventDefault();
-    var cantidadTiros = $('#cantidadTiros').val();
-    $('#cantidadTiros').val('');
-    tirarCantidadVeces(cantidadTiros);
-  });
+/* CUANDO SE HACE CLICK EN COMENZAR LEE EL INPUT Y LLAMA A
+	TIRADOR.TIRAR PASANDOLE LA CANTIDAD DE TIROS QUE DEBE HACER*/
+	$('#comenzar').on('click', function(event){
+		event.preventDefault();
+		var cantidadTiros = $('#cantidadTiros').val();
+		$('#cantidadTiros').val('');
+		tirador.Tirar(cantidadTiros);
+	});
+});
