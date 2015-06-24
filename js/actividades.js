@@ -2,7 +2,7 @@
 $('document').ready(function(){
 
 	// Definicion de Variables
-	grupo = 36;
+	grupo = 69;
 
 		// Funcion que Agrega una Lista de Actividades para todo el MES y refresca la Tabla HTML
 		function cargarActividades(grupo){
