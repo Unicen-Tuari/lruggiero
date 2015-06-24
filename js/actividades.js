@@ -4,38 +4,41 @@ $('document').ready(function(){
 	// Definicion de Variables
 	grupo = 36;
 
-	// Funcion que Agrega una Lista de Actividades para todo el MES y refresca la Tabla HTML
-	function cargarActividades(grupo){
-		var mes = $('#mes').val();
-		$('#mes').val('');
-		var semana1 = $('#semana1').val();
-		$('#semana1').val('');
-		var semana2 = $('#semana2').val();
-		$('#semana2').val('');
-		var semana3 = $('#semana3').val();
-		$('#semana3').val('');
-		var semana4 = $('#semana4').val();
-		$('#semana4').val('');
-		var registro = [mes, semana1, semana2, semana3, semana4];
-		var registroCompleto = {
-				'group': grupo,
-				'thing': registro
+		// Funcion que Agrega una Lista de Actividades para todo el MES y refresca la Tabla HTML
+		function cargarActividades(grupo){
+			var mes = $('#mes').val();
+			$('#mes').val('');
+			var semana1 = $('#semana1').val();
+			$('#semana1').val('');
+			var semana2 = $('#semana2').val();
+			$('#semana2').val('');
+			var semana3 = $('#semana3').val();
+			$('#semana3').val('');
+			var semana4 = $('#semana4').val();
+			$('#semana4').val('');
+			var registro = [mes, semana1, semana2, semana3, semana4];
+			var registroCompleto = {
+					'group': grupo,
+					'thing': registro
+				};
+			if(mes.length > 0 || semana1.length > 0 || semana2.length > 0 || semana3.length > 0 || semana4.length > 0){
+				$.ajax({
+					type: 'POST',
+					dataType: 'JSON',
+					data: JSON.stringify(registroCompleto),
+					contentType: 'application/json; charset=utf-8',
+					url: 'http://web-unicen.herokuapp.com/api/create',
+					success: function(data){
+								leerGrupo(grupo);
+							},
+					error: function(){
+								alert('Las Actividades NO Pudieron ser Agregadas Correctamente');
+							}
+				});
+			} else {
+				alert('Los Campos Deben Contener al Menos 1 Caracter');
 			};
-
-		$.ajax({
-			type: 'POST',
-			dataType: 'JSON',
-			data: JSON.stringify(registroCompleto),
-			contentType: 'application/json; charset=utf-8',
-			url: 'http://web-unicen.herokuapp.com/api/create',
-			success: function(data){
-						leerGrupo(grupo);
-					},
-			error: function(){
-						alert('Las Actividades NO Pudieron ser Agregadas Correctamente');
-					}
-		});
-	};
+		};
 
 	// Funcion que Lee la INFO del GRUPO indicado y la Agrega en la Tabla HTML
 	function leerGrupo(grupo){
@@ -57,7 +60,7 @@ $('document').ready(function(){
 							semana2 = data.information[i]['thing'][2];
 							semana3 = data.information[i]['thing'][3];
 							semana4 = data.information[i]['thing'][4];
-							registro = '<tr><td>' + mes + '</td><td>' + semana1 + '</td><td>' + semana2
+							registro = '<tr><td class="mes">' + mes + '</td><td>' + semana1 + '</td><td>' + semana2
 									+ '</td><td>' + semana3 + '</td><td>' + semana4 + '</td></tr>';
 							$('#lista-actividades').append(registro);
 						}
