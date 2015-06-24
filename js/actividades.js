@@ -2,28 +2,33 @@
 $('document').ready(function(){
 
 	// Definicion de Variables
-	grupo = '36';
+	grupo = 36;
 
 	// Funcion que Agrega una Lista de Actividades para todo el MES y refresca la Tabla HTML
 	function cargarActividades(grupo){
 		var mes = $('#mes').val();
+		$('#mes').val('');
 		var semana1 = $('#semana1').val();
+		$('#semana1').val('');
 		var semana2 = $('#semana2').val();
+		$('#semana2').val('');
 		var semana3 = $('#semana3').val();
+		$('#semana3').val('');
 		var semana4 = $('#semana4').val();
+		$('#semana4').val('');
 		var registro = [mes, semana1, semana2, semana3, semana4];
 		var registroCompleto = {
-				'grupo': grupo,
-				'registro': registro
+				'group': grupo,
+				'thing': registro
 			};
 
 		$.ajax({
-			type: 'GET',
+			type: 'POST',
 			dataType: 'JSON',
 			data: JSON.stringify(registroCompleto),
+			contentType: 'application/json; charset=utf-8',
 			url: 'http://web-unicen.herokuapp.com/api/create',
 			success: function(data){
-						alert('Las Actividades Pudieron ser Agregadas Correctamente');
 						leerGrupo(grupo);
 					},
 			error: function(){
@@ -45,15 +50,16 @@ $('document').ready(function(){
 						var semana3 = '';
 						var semana4 = '';
 						var registro = '';
+						$('#lista-actividades').html('');
 						for (var i = 0 ; i < data.information.length ; i++){
 							mes = data.information[i]['thing'][0];
-							semana1 = data.information[i]['registro'][1];
-							semana2 = data.information[i]['registro'][2];
-							semana3 = data.information[i]['registro'][3];
-							semana4 = data.information[i]['registro'][4];
+							semana1 = data.information[i]['thing'][1];
+							semana2 = data.information[i]['thing'][2];
+							semana3 = data.information[i]['thing'][3];
+							semana4 = data.information[i]['thing'][4];
 							registro = '<tr><td>' + mes + '</td><td>' + semana1 + '</td><td>' + semana2
 									+ '</td><td>' + semana3 + '</td><td>' + semana4 + '</td></tr>';
-							$("#actividades").html(registro);
+							$('#lista-actividades').append(registro);
 						}
 					},
 			error: function(){
@@ -66,7 +72,7 @@ $('document').ready(function(){
 	leerGrupo(grupo);
 
 	// Llama a la Funcion cargarActividades cuando se Presiona el Boton Correspondiente
-	$('#agregarActividad').on('click', function(event){
+	$('#agregar-actividad').on('click', function(event){
 		event.preventDefault();
 		cargarActividades(grupo);
 	});

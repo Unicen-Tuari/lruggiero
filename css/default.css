@@ -121,10 +121,14 @@ section li {
 	padding: 0;
 }
 
+.table-responsive {
+	border: 0;
+	padding: 25px 35px 0 35px
+}
+
 .tabla-actividades {
 	background-color: rgb(152, 152, 255);
 	border-color: rgb(0, 0, 0);
-	margin-top: 25px;
 }
 
 .tabla-actividades thead tr th {
