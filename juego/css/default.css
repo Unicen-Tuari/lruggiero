@@ -1,0 +1,25 @@
+body {
+	background-color: rgb(0, 0, 0);
+}
+
+h1 {
+	text-align: center;
+}
+
+img {
+	border-radius: 10px;
+	border: 2px solid rgb(0, 100, 0);
+	margin: 25px 10px 50px 10px;
+}
+
+input {
+	width: 50px;
+}
+
+button {
+	margin-top: 25px;
+}
+
+.jumbotron {
+	border: 5px solid rgb(0, 100, 0);
+}

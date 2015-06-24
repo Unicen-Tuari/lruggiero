@@ -21,7 +21,7 @@ $('document').ready(function(){
 					'group': grupo,
 					'thing': registro
 				};
-			if(mes.length > 0 || semana1.length > 0 || semana2.length > 0 || semana3.length > 0 || semana4.length > 0){
+			if(mes.length > 0 && semana1.length > 0 && semana2.length > 0 && semana3.length > 0 && semana4.length > 0){
 				$.ajax({
 					type: 'POST',
 					dataType: 'JSON',
