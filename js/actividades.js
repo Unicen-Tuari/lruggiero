@@ -2,7 +2,7 @@
 $('document').ready(function(){
 
 	// Definicion de Variables
-	grupo = 69;
+	var grupo = 69;
 
 		// Funcion que Agrega una Lista de Actividades para todo el MES y refresca la Tabla HTML
 		function cargarActividades(grupo){
@@ -21,7 +21,7 @@ $('document').ready(function(){
 					'group': grupo,
 					'thing': registro
 				};
-			if(mes.length > 0 && semana1.length > 0 && semana2.length > 0 && semana3.length > 0 && semana4.length > 0){
+			if(mes > 0 && semana1 > 0 && semana2 > 0 && semana3 > 0 && semana4 > 0){
 				$.ajax({
 					type: 'POST',
 					dataType: 'JSON',
