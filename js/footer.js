@@ -15,5 +15,5 @@ $('document').ready(function(){
 	};
 
 	// Ejecuta la Funcion que Posiciona el Footer
-	ActualizarPosicionFooter());
+	ActualizarPosicionFooter();
 });
