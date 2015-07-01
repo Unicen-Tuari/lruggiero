@@ -21,7 +21,7 @@ $('document').ready(function(){
 					'group': grupo,
 					'thing': registro
 				};
-			if(mes > 0 && semana1 > 0 && semana2 > 0 && semana3 > 0 && semana4 > 0){
+			if(mes && semana1 && semana2 && semana3 && semana4){
 				$.ajax({
 					type: 'POST',
 					dataType: 'JSON',

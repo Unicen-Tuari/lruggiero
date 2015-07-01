@@ -1,10 +1,10 @@
 // Solo Ejecuta Codigo cuando el DOM esta Totalmente Cargado
 $('document').ready(function(){
 	// Definicion de Variables con los Nombres de las Secciones
-	inicio = 'inicio';
-	actividades = 'actividades';
-	galeria = 'galeria';
-	contacto = 'contacto';
+	var inicio = 'inicio';
+	var actividades = 'actividades';
+	var galeria = 'galeria';
+	var contacto = 'contacto';
 
 	/* Funcion que Carga en el Contenedor Principal la 
 		Seccion que se le pase como Parametro */
