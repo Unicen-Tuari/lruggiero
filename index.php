@@ -8,7 +8,10 @@
 
 // Resolucion del Enrutamiento
 	if(!array_key_exists(RouterConfig::$ACTION, $_REQUEST) OR $_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_HOME){
-		// Cargar la Home
+
+	// Carga la Home
+		$mainController = new MainController();
+		$mainController->home();
 	}
 
 ?>
