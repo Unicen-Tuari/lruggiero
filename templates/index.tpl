@@ -4,13 +4,16 @@
 	<title>ENDURO TANDIL</title>
 	<link rel="shortcut icon" type="image/x-icon" href="css/imagenes/favicon.ico"/>
 <!--//// CDN PARA CSS DE BOOTSTRAP ////-->
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/bootstrap/bootstrap.min.css">
+<!--	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
 <!--//// CSS PROPIO ////-->
 	<link rel="stylesheet" type="text/css" href="css/default.css">
 <!--//// CDN PARA JS DE JQUERY ////-->
-	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="libs/jquery/jquery-1.11.3.min.js"></script>
+<!--	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script> -->
 <!--//// CDN PARA JS DE BOOTSTRAP ////-->
-	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="libs/bootstrap/bootstrap.min.js"></script>
+<!--	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
 <!--//// JS DEL MENU ////-->
 	<script type="text/javascript" src="js/menu.js"></script>
 </head>
