@@ -9,6 +9,7 @@
 
 		function __construct(){
 			$this->smarty = new Smarty;
+			$this->smarty->setCompileDir('libs/smarty-3.1.27/templates_c');
 		}
 
 		function showHome(){
