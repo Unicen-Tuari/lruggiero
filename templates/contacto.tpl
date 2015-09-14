@@ -33,9 +33,9 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<div class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4">
-						<button type="reset" class="btn btn-default">Restablecer</button>
-						<button type="submit" class="btn btn-default">Enviar</button>
+					<div class="col-xs-12 col-md-8 col-md-offset-2">
+						<button type="reset" class="btn btn-danger">Restablecer</button>
+						<button type="submit" class="btn btn-success">Enviar Consulta</button>
 					</div>
 				</div>
 			</form>

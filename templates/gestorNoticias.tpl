@@ -19,13 +19,13 @@
 				</div>
 				<div class="form-group">
 					<div class="col-xs-12 col-md-8 col-md-offset-2">
-						<input class="form-control" type="file" name="imagen">
+						<input class="btn btn-default" type="file" name="imagen">
 					</div>
 				</div>
 				<div class="form-group">
-					<div class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4">
-						<button type="reset" class="btn btn-default">Restablecer</button>
-						<button type="submit" class="btn btn-default">Crear Noticia</button>
+					<div class="col-xs-12 col-md-8 col-md-offset-2">
+						<button type="reset" class="btn btn-danger">Restablecer</button>
+						<button type="submit" class="btn btn-success">Crear Noticia</button>
 					</div>
 				</div>
 			</form>

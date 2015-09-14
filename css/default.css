@@ -200,8 +200,11 @@ section li {
 }
 
 .contacto {
-	width: 90%;
-	margin: 0 auto 25px auto;
+	margin: 0 auto 0 auto;
+}
+
+.contacto button, .agregar-noticia button {
+	margin: 0 15px 15px 0;
 }
 
 .pie-pagina {
