@@ -36,6 +36,11 @@
 			$this->view->showContacto();
 		}
 
+	// Carga la Seccion de Gestor de Noticias
+		function gestorNoticias(){
+			$this->view->showGestorNoticias();
+		}
+
 	}
 
 ?>

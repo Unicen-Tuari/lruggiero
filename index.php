@@ -34,6 +34,11 @@
 	// Carga la Seccion de Contacto
 		$mainController->contacto();
 
+	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_GESTOR_NOTICIAS){
+
+	// Carga la Seccion de Gestor de Noticias
+		$mainController->gestorNoticias();
+
 	}
 
 ?>

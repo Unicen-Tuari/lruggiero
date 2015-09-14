@@ -5,6 +5,7 @@ $('document').ready(function(){
 	var actividades = 'actividades';
 	var galeria = 'galeria';
 	var contacto = 'contacto';
+	var gestorNoticias = 'gestorNoticias';
 
 	/* Funcion que Carga en el Contenedor Principal la 
 		Seccion que se le pase como Parametro */
@@ -56,4 +57,12 @@ $('document').ready(function(){
 		$(this).addClass("active");
 		cargarSeccion(contacto);
 	});
+
+	// Carga la Seccion Gestor de Noticias al Presionar el Boton Correspondiente
+	$('#gestor-noticias').on('click', function(event){
+		event.preventDefault();
+		$(".nav").find(".active").removeClass("active");
+		cargarSeccion(gestorNoticias);
+	});
+
 });

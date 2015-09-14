@@ -37,5 +37,10 @@
 			$this->smarty->display('contacto.tpl');
 		}
 
+	// Carga la Seccion de Gestor de Noticias
+		function showGestorNoticias(){
+			$this->smarty->display('gestorNoticias.tpl');
+		}
+
 	}
 ?>

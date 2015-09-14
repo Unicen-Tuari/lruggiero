@@ -80,7 +80,7 @@
 						<div class="collapse navbar-collapse" id="myNavbar">
 							<ul class="nav navbar-nav nav-justified menu-botonera">
 								<li id="inicio" class="active"><a href="#">INICIO</a></li>
-								<li id="actividades"><a href="#">ACTIVIDADES</a></li>
+								<li id="gestor-noticias"><a href="#">ACTIVIDADES</a></li>
 								<li id="galeria"><a href="#">GALERIA</a></li>
 								<li id="contacto"><a href="#">CONTACTO</a></li>
 							</ul>
