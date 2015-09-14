@@ -7,11 +7,33 @@
 	REQUIRE_ONCE('controller/main_controller.php');
 
 // Resolucion del Enrutamiento
-	if(!array_key_exists(RouterConfig::$ACTION, $_REQUEST) OR $_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_HOME){
+	$mainController = new MainController();
 
-	// Carga la Home
-		$mainController = new MainController();
-		$mainController->home();
+	if(!array_key_exists(RouterConfig::$ACTION, $_REQUEST) OR $_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_INDEX){
+
+	// Carga el Head, Nav y Footer
+		$mainController->index();
+
+	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_INICIO){
+
+	// Carga la Seccion de Inicio
+		$mainController->inicio();
+
+	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_ACTIVIDADES){
+
+	// Carga la Seccion de Actividades
+		$mainController->actividades();
+
+	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_GALERIA){
+
+	// Carga la Seccion de Galeria
+		$mainController->galeria();
+
+	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_CONTACTO){
+
+	// Carga la Seccion de Contacto
+		$mainController->contacto();
+
 	}
 
 ?>

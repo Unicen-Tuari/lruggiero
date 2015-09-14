@@ -1,9 +1,13 @@
 <?php
 
-// Clase que Contiene Todos los Posibles Caminos a ser Seleccionados por el Router
+// Clase que Contiene Todos las Posibles Acciones a ser Solicitadas a el Router
 	class RouterConfig{
 		public static $ACTION = 'action';
-		public static $ACTION_HOME = 'home';
+		public static $ACTION_INDEX = 'index';
+		public static $ACTION_INICIO = 'inicio';
+		public static $ACTION_ACTIVIDADES = 'actividades';
+		public static $ACTION_GALERIA = 'galeria';
+		public static $ACTION_CONTACTO = 'contacto';
 	}
 
 ?>

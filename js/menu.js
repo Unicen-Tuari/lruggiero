@@ -12,7 +12,7 @@ $('document').ready(function(){
 		$.ajax({
 			type: 'GET',
 			dataType: 'HTML',
-			url: seccion + '.html',
+			url: 'index.php?action=' + seccion,
 			success: function(data){
 						$('#contenedor-principal').html(data);
 					},

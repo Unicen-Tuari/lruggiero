@@ -11,9 +11,31 @@
 			$this->view = new MainView();
 		}
 
-		function home(){
-			$this->view->showHome();
+	// Carga el Head, Nav y Footer
+		function index(){
+			$this->view->showIndex();
 		}
+
+	// Carga la Seccion de Inicio
+		function inicio(){
+			$this->view->showInicio();
+		}
+
+	// Carga la Seccion de Actividades
+		function actividades(){
+			$this->view->showActividades();
+		}
+
+	// Carga la Seccion de Galeria
+		function galeria(){
+			$this->view->showGaleria();
+		}
+
+	// Carga la Seccion de Contacto
+		function contacto(){
+			$this->view->showContacto();
+		}
+
 	}
 
 ?>
