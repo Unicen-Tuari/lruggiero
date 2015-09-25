@@ -21,14 +21,12 @@
 				$querySelect = $this->db->prepare('SELECT 1 FROM categoria WHERE nombre=?');
 				$querySelect->execute(array($categoria));
 				if(!$querySelect->fetch()){
-					echo 'De los Andes';
 					$queryInsert = $this->db->prepare('INSERT INTO categoria(nombre) VALUES(?)');
 					$queryInsert->execute(array($categoria));
 					$this->db->commit();
 				}
 			} catch(Exception $e){
 				$this->db->rollBack();
-				//echo 'Excepción capturada: ',  $e->getMessage(), "\n";
 			}
 		}
 
@@ -42,8 +40,8 @@
 				$categorias[] = $categoria;
 			}
 			if(!$categorias){
-				$categorias[]['id'] = '';
-				$categorias[]['nombre'] = 'No Existen Categorias';
+				$categorias[0]['id'] = '';
+				$categorias[0]['nombre'] = 'No Existen Categorias';
 			}
 			return $categorias;
 		}

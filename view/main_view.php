@@ -38,7 +38,8 @@
 		}
 
 	// Carga la Seccion del Gestor de Administrador
-		function showGestorAdmin(){
+		function showGestorAdmin($categorias){
+			$this->smarty->assign('categorias', $categorias);
 			$this->smarty->display('gestorAdmin.tpl');
 		}
 

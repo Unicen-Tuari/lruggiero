@@ -43,20 +43,16 @@
 
 	// Carga la Seccion del Gestor de Administrador
 		function gestorAdmin(){
-			$this->view->showGestorAdmin();
+			$this->view->showGestorAdmin($this->model->leerCategorias());
 		}
 
 	// Crea una Nueva Categoria de Noticias
 		function agregarCategoria(){
 			if(isset($_REQUEST['categoria'])){
 				$this->model->agregarCategoria($_REQUEST['categoria']);
+				$this->gestorAdmin();
 			}
 		}
 
-	// Lee las Categorias de las Noticias
-		function leerCategorias(){
-			$this->model->leerCategorias();
-		}
 	}
-
 ?>

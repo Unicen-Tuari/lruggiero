@@ -44,11 +44,6 @@
 	// Crea una Nueva Categoria de Noticias
 		$mainController->agregarCategoria();
 
-	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_LEER_CATEGORIAS){
-
-	// Lee las Categorias de las Noticias
-		$mainController->leerCategorias();
-
 	}
 
 ?>

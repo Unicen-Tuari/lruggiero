@@ -2,8 +2,24 @@
 	<h1>GESTOR DE NOTICIAS</h1>
 	<section>
 		<div class="page-header cabecera-seccion">
-			<h2>Crear Categoria</h2>
+			<h2>Categorias</h2>
 		</div>
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>CATEGORIA</th>
+				</tr>
+			</thead>
+			<tbody>
+				{foreach $categorias as $categoria}
+					<tr>
+						<td>{$categoria.id}</td>
+						<td>{$categoria.nombre}</td>
+					</tr>
+				{/foreach}
+			</tbody>
+		</table>
 		<p>Completa el Formulario para Poder Crear una Nueva Categoria.</p>
 		<div class="gestor-admin">
 			<form class="form-horizontal" role="form" action="index.php?action=agregarCategoria" method="POST" enctype="multipart/form-data">
@@ -50,24 +66,6 @@
 					</div>
 				</div>
 			</form>
-		</div>
-	</section>
-	<section>
-		<div class="page-header cabecera-seccion">
-			<h2>Modificar Noticia</h2>
-		</div>
-		<p>Elige una Noticia y Completa el Formulario para Poder Modificarla.</p>
-		<div class="modificar-noticia">
-
-		</div>
-	</section>
-	<section>
-		<div class="page-header cabecera-seccion">
-			<h2>Eliminar Noticia</h2>
-		</div>
-		<p>Elige una Noticia para Poder Eliminarla.</p>
-		<div class="modificar-noticia">
-
 		</div>
 	</section>
 </article>
