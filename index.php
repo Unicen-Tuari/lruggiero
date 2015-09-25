@@ -34,10 +34,20 @@
 	// Carga la Seccion de Contacto
 		$mainController->contacto();
 
-	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_GESTOR_NOTICIAS){
+	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_GESTOR_ADMIN){
 
-	// Carga la Seccion de Gestor de Noticias
-		$mainController->gestorNoticias();
+	// Carga la Seccion del Gestor de Administrador
+		$mainController->gestorAdmin();
+
+	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_AGREGAR_CATEGORIA){
+
+	// Crea una Nueva Categoria de Noticias
+		$mainController->agregarCategoria();
+
+	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_LEER_CATEGORIAS){
+
+	// Lee las Categorias de las Noticias
+		$mainController->leerCategorias();
 
 	}
 

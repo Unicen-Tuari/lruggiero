@@ -8,7 +8,9 @@
 		public static $ACTION_ACTIVIDADES = 'actividades';
 		public static $ACTION_GALERIA = 'galeria';
 		public static $ACTION_CONTACTO = 'contacto';
-		public static $ACTION_GESTOR_NOTICIAS = 'gestorNoticias';
+		public static $ACTION_GESTOR_ADMIN = 'gestorAdmin';
+		public static $ACTION_AGREGAR_CATEGORIA = 'agregarCategoria';
+		public static $ACTION_LEER_CATEGORIAS = 'leerCategorias';
 	}
 
 ?>

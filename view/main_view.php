@@ -37,9 +37,9 @@
 			$this->smarty->display('contacto.tpl');
 		}
 
-	// Carga la Seccion de Gestor de Noticias
-		function showGestorNoticias(){
-			$this->smarty->display('gestorNoticias.tpl');
+	// Carga la Seccion del Gestor de Administrador
+		function showGestorAdmin(){
+			$this->smarty->display('gestorAdmin.tpl');
 		}
 
 	}

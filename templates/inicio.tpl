@@ -1,6 +1,5 @@
 <article>
-	<h1>TODO SOBRE ENDURO</h1>
-	<button id="gestor-noticias" class="btn btn-success center-block">Gestor de Noticias</button>
+	<h1>NOTICIAS</h1>
 	<section>
 		<div class="page-header cabecera-seccion">
 			<h2>Explicando un Poco el Deporte</h2>

@@ -1,13 +1,18 @@
 <?php
 
+// Inclusion del Modelo Principal
+	REQUIRE_ONCE('model/main_model.php');
+
 // Inclusion de la Vista Principal
 	REQUIRE_ONCE('view/main_view.php');
 
 // Definicion del Controlador Principal
 	class MainController{
+		private $model;
 		private $view;
 
 		function __construct(){
+			$this->model = new MainModel();
 			$this->view = new MainView();
 		}
 
@@ -36,11 +41,22 @@
 			$this->view->showContacto();
 		}
 
-	// Carga la Seccion de Gestor de Noticias
-		function gestorNoticias(){
-			$this->view->showGestorNoticias();
+	// Carga la Seccion del Gestor de Administrador
+		function gestorAdmin(){
+			$this->view->showGestorAdmin();
 		}
 
+	// Crea una Nueva Categoria de Noticias
+		function agregarCategoria(){
+			if(isset($_REQUEST['categoria'])){
+				$this->model->agregarCategoria($_REQUEST['categoria']);
+			}
+		}
+
+	// Lee las Categorias de las Noticias
+		function leerCategorias(){
+			$this->model->leerCategorias();
+		}
 	}
 
 ?>
