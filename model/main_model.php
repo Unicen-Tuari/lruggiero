@@ -62,9 +62,14 @@
 		function leerNoticias(){
 			$noticias = array();
 			$noticia = '';
+			$nombreCategoria = '';
 			$querySelect = $this->db->prepare('SELECT * FROM noticia');
 			$querySelect->execute();
 			while($noticia = $querySelect->fetch()){
+				$queryCategoria = $this->db->prepare('SELECT nombre FROM categoria WHERE id=?');
+				$queryCategoria->execute(array($noticia['categoria']));
+				$nombreCategoria = $queryCategoria->fetch();
+				$noticia['nombreCategoria'] = $nombreCategoria['nombre'];
 				$noticias[] = $noticia;
 			}
 			return $noticias;

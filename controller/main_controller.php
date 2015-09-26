@@ -23,7 +23,7 @@
 
 	// Carga la Seccion de Inicio
 		function inicio(){
-			$this->view->showInicio();
+			$this->view->showInicio($this->model->leerNoticias());
 		}
 
 	// Carga la Seccion de Actividades
@@ -50,7 +50,7 @@
 		function agregarCategoria(){
 			if(isset($_REQUEST['categoria'])){
 				$this->model->agregarCategoria($_REQUEST['categoria']);
-				$this->gestorAdmin();
+				header('Location: /');
 			}
 		}
 
@@ -60,7 +60,7 @@
 			   isset($_REQUEST['titulo']) &&
 			   isset($_REQUEST['contenido'])){
 				$this->model->agregarNoticia($_REQUEST['categoria'], $_REQUEST['titulo'], $_REQUEST['contenido']);
-				$this->gestorAdmin();
+				header('Location: /');
 			}
 		}
 

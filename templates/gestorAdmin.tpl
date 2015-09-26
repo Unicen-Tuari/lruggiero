@@ -51,7 +51,7 @@
 			<thead>
 				<tr>
 					<th>ID</th>
-					<th>CATEGORIA</th>
+					<th>ID CATEGORIA</th>
 					<th>TITULO</th>
 					<th>CONTENIDO</th>
 					<th>IMAGEN</th>

@@ -18,7 +18,8 @@
 		}
 
 	// Carga la Seccion de Inicio
-		function showInicio(){
+		function showInicio($noticias){
+			$this->smarty->assign('noticias', $noticias);
 			$this->smarty->display('inicio.tpl');
 		}
 
