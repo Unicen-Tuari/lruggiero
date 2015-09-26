@@ -44,6 +44,11 @@
 	// Crea una Nueva Categoria de Noticias
 		$mainController->agregarCategoria();
 
+	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_AGREGAR_NOTICIA){
+
+	// Crea una Nueva Noticia
+		$mainController->agregarNoticia();
+
 	}
 
 ?>

@@ -20,6 +20,7 @@ CREATE TABLE noticia (
 	id integer NOT NULL AUTO_INCREMENT,
 	categoria integer NOT NULL,
 	titulo varchar(30),
+	resumen varchar(500),
 	contenido varchar(5000),
 	imagen varchar(50),
 	CONSTRAINT pk_noticia PRIMARY KEY (id)

@@ -39,11 +39,23 @@
 			while($categoria = $querySelect->fetch()){
 				$categorias[] = $categoria;
 			}
-			if(!$categorias){
-				$categorias[0]['id'] = '';
-				$categorias[0]['nombre'] = 'No Existen Categorias';
-			}
 			return $categorias;
+		}
+
+	// Crea una Nueva Noticia
+		function agregarNoticia($categoria, $titulo, $resumen, $contenido){
+			try{
+				$this->db->beginTransaction();
+				$querySelect = $this->db->prepare('SELECT 1 FROM noticia WHERE titulo=?');
+				$querySelect->execute(array($titulo));
+				if(!$querySelect->fetch()){
+					$queryInsert = $this->db->prepare('INSERT INTO noticia(categoria, titulo, resumen, contenido) VALUES(?, ?, ?, ?)');
+					$queryInsert->execute(array($categoria, $titulo, $resumen, $contenido));
+					$this->db->commit();
+				}
+			} catch(Exception $e){
+				$this->db->rollBack();
+			}
 		}
 
 	}

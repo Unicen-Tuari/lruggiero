@@ -54,5 +54,16 @@
 			}
 		}
 
+	// Crea una Nueva Noticia
+		function agregarNoticia(){
+			if($_REQUEST['categoria'] != 0 &&
+			   isset($_REQUEST['titulo']) &&
+			   isset($_REQUEST['resumen']) &&
+			   isset($_REQUEST['contenido'])){
+				$this->model->agregarNoticia($_REQUEST['categoria'], $_REQUEST['titulo'], $_REQUEST['resumen'], $_REQUEST['contenido']);
+				$this->gestorAdmin();
+			}
+		}
+
 	}
 ?>
