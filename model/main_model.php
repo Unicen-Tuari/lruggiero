@@ -43,19 +43,31 @@
 		}
 
 	// Crea una Nueva Noticia
-		function agregarNoticia($categoria, $titulo, $resumen, $contenido){
+		function agregarNoticia($categoria, $titulo, $contenido){
 			try{
 				$this->db->beginTransaction();
 				$querySelect = $this->db->prepare('SELECT 1 FROM noticia WHERE titulo=?');
 				$querySelect->execute(array($titulo));
 				if(!$querySelect->fetch()){
-					$queryInsert = $this->db->prepare('INSERT INTO noticia(categoria, titulo, resumen, contenido) VALUES(?, ?, ?, ?)');
-					$queryInsert->execute(array($categoria, $titulo, $resumen, $contenido));
+					$queryInsert = $this->db->prepare('INSERT INTO noticia(categoria, titulo, contenido) VALUES(?, ?, ?)');
+					$queryInsert->execute(array($categoria, $titulo, $contenido));
 					$this->db->commit();
 				}
 			} catch(Exception $e){
 				$this->db->rollBack();
 			}
+		}
+
+	// Lee las Noticias
+		function leerNoticias(){
+			$noticias = array();
+			$noticia = '';
+			$querySelect = $this->db->prepare('SELECT * FROM noticia');
+			$querySelect->execute();
+			while($noticia = $querySelect->fetch()){
+				$noticias[] = $noticia;
+			}
+			return $noticias;
 		}
 
 	}

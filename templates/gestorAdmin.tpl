@@ -24,7 +24,6 @@
 						<td>No Existen Categorias</td>
 					</tr>
 				{/if}
-
 			</tbody>
 		</table>
 		<p>Completa el Formulario para Poder Agregar una Nueva Categoria.</p>
@@ -48,6 +47,34 @@
 		<div class="page-header cabecera-seccion">
 			<h2>Noticias</h2>
 		</div>
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>CATEGORIA</th>
+					<th>TITULO</th>
+					<th>CONTENIDO</th>
+					<th>IMAGEN</th>
+				</tr>
+			</thead>
+			<tbody>
+				{if !empty($noticias)}
+					{foreach $noticias as $noticia}
+						<tr>
+							<td>{$noticia.id}</td>
+							<td>{$noticia.categoria}</td>
+							<td>{$noticia.titulo}</td>
+							<td>{$noticia.contenido}</td>
+							<td>{$noticia.imagen}</td>
+						</tr>
+					{/foreach}
+				{else}
+					<tr>
+						<td>No Existen Noticias</td>
+					</tr>
+				{/if}
+			</tbody>
+		</table>
 		<p>Completa el Formulario para Poder Agregar una Nueva Noticia.</p>
 		<div class="gestor-admin">
 			<form class="form-horizontal" role="form" action="index.php?action=agregarNoticia" method="POST" enctype="multipart/form-data">
@@ -68,11 +95,6 @@
 				<div class="form-group">
 					<div class="col-xs-12 col-md-8 col-md-offset-2">
 						<input class="form-control" type="text" maxlength="40" id="titulo" name="titulo" placeholder="Titulo de la Noticia">
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-xs-12 col-md-8 col-md-offset-2">
-						<textarea class="form-control" maxlength="500" rows="8" id="resumen" name="resumen" placeholder="Resumen de la Noticia"></textarea>
 					</div>
 				</div>
 				<div class="form-group">
