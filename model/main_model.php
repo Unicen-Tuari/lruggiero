@@ -16,17 +16,19 @@
 
 	// Crea una Nueva Categoria de Noticias
 		function agregarCategoria($categoria){
-			try{
-				$this->db->beginTransaction();
-				$querySelect = $this->db->prepare('SELECT 1 FROM categoria WHERE nombre=?');
-				$querySelect->execute(array($categoria));
-				if(!$querySelect->fetch()){
-					$queryInsert = $this->db->prepare('INSERT INTO categoria(nombre) VALUES(?)');
-					$queryInsert->execute(array($categoria));
-					$this->db->commit();
+			if($categoria){
+				try{
+					$this->db->beginTransaction();
+					$querySelect = $this->db->prepare('SELECT 1 FROM categoria WHERE nombre=?');
+					$querySelect->execute(array($categoria));
+					if(!$querySelect->fetch()){
+						$queryInsert = $this->db->prepare('INSERT INTO categoria(nombre) VALUES(?)');
+						$queryInsert->execute(array($categoria));
+						$this->db->commit();
+					}
+				} catch(Exception $e){
+					$this->db->rollBack();
 				}
-			} catch(Exception $e){
-				$this->db->rollBack();
 			}
 		}
 
@@ -45,17 +47,19 @@
 	// Crea una Nueva Noticia
 		function agregarNoticia($id_categoria, $titulo, $contenido){
 			date_default_timezone_set('America/Argentina/Buenos_Aires');
-			try{
-				$this->db->beginTransaction();
-				$querySelect = $this->db->prepare('SELECT 1 FROM noticia WHERE titulo=?');
-				$querySelect->execute(array($titulo));
-				if(!$querySelect->fetch()){
-					$queryInsert = $this->db->prepare('INSERT INTO noticia(id_categoria, titulo, contenido, fecha, hora) VALUES(?, ?, ?, ?, ?)');
-					$queryInsert->execute(array($id_categoria, $titulo, $contenido, date('d/m/y'), date('H:i')));
-					$this->db->commit();
+			if($id_categoria && $titulo && $contenido){
+				try{
+					$this->db->beginTransaction();
+					$querySelect = $this->db->prepare('SELECT 1 FROM noticia WHERE titulo=?');
+					$querySelect->execute(array($titulo));
+					if(!$querySelect->fetch()){
+						$queryInsert = $this->db->prepare('INSERT INTO noticia(id_categoria, titulo, contenido, fecha, hora) VALUES(?, ?, ?, ?, ?)');
+						$queryInsert->execute(array($id_categoria, $titulo, $contenido, date('d/m/y'), date('H:i')));
+						$this->db->commit();
+					}
+				} catch(Exception $e){
+					$this->db->rollBack();
 				}
-			} catch(Exception $e){
-				$this->db->rollBack();
 			}
 		}
 
@@ -87,7 +91,7 @@
 			$queryCategoria->execute(array($noticia['id_categoria']));
 			$nombreCategoria = $queryCategoria->fetch();
 			$noticia['nombreCategoria'] = $nombreCategoria['nombre'];
-			return $noticia);
+			return $noticia;
 		}
 
 	}

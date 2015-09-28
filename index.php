@@ -14,12 +14,17 @@
 	// Carga el Head, Nav y Footer
 		$mainController->index();
 
+	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_INICIO && isset($_REQUEST['id'])){
+
+	// Carga la Seccion de Inicio con la Noticia Indicada
+		$mainController->noticia();
+
 	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_INICIO){
 
 	// Carga la Seccion de Inicio
 		$mainController->inicio();
 
-	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_ACTIVIDADES){
+	}  elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_ACTIVIDADES){
 
 	// Carga la Seccion de Actividades
 		$mainController->actividades();

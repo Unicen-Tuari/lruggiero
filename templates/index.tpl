@@ -110,7 +110,7 @@
 			<!-- FOOTER -->
 			<div class="col-xs-12 col-md-10 col-md-offset-1">
 				<footer class="pie-pagina">
-					<button class="btn btn-default boton-admin" id="gestor-admin">Admin</button>
+					<button class="btn btn-primary boton-admin" id="gestor-admin">Admin</button>
 					<p>&copy Todos los Derechos Reservados</p>
 				</footer>
 			</div>

@@ -234,8 +234,9 @@ section li {
 }
 
 .boton-admin {
+	font-weight: 900;
 	float: left;
-	margin: -6px -100px 0 25px;
+	margin: -7px -100px 0 25px;
 	width: 75px;
 	border-radius: 15px;
 }

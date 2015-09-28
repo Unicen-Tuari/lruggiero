@@ -23,6 +23,12 @@
 			$this->smarty->display('inicio.tpl');
 		}
 
+	// Carga la Seccion de Inicio
+		function showNoticia($noticia){
+			$this->smarty->assign('noticia', $noticia);
+			$this->smarty->display('noticia.tpl');
+		}
+
 	// Carga la Seccion de Actividades
 		function showActividades(){
 			$this->smarty->display('actividades.tpl');
