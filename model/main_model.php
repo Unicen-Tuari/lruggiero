@@ -16,7 +16,7 @@
 
 	// Crea una Nueva Categoria de Noticias
 		function agregarCategoria($categoria){
-			if($categoria){
+			if(strlen($categoria) > 4){
 				try{
 					$this->db->beginTransaction();
 					$querySelect = $this->db->prepare('SELECT 1 FROM categoria WHERE nombre=?');
@@ -47,7 +47,7 @@
 	// Crea una Nueva Noticia
 		function agregarNoticia($id_categoria, $titulo, $contenido){
 			date_default_timezone_set('America/Argentina/Buenos_Aires');
-			if($id_categoria && $titulo && $contenido){
+			if($id_categoria && strlen($titulo) > 9 && strlen($contenido) > 139){
 				try{
 					$this->db->beginTransaction();
 					$querySelect = $this->db->prepare('SELECT 1 FROM noticia WHERE titulo=?');

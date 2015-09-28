@@ -61,10 +61,10 @@
 
 	// Crea una Nueva Noticia
 		function agregarNoticia(){
-			if($_REQUEST['categoria'] != 0 &&
+			if(isset($_REQUEST['id_categoria']) &&
 			   isset($_REQUEST['titulo']) &&
 			   isset($_REQUEST['contenido'])){
-				$this->model->agregarNoticia($_REQUEST['categoria'], $_REQUEST['titulo'], $_REQUEST['contenido']);
+				$this->model->agregarNoticia($_REQUEST['id_categoria'], $_REQUEST['titulo'], $_REQUEST['contenido']);
 				header('Location: /');
 			}
 		}

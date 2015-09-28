@@ -9,13 +9,13 @@
 			<form class="form-horizontal" role="form" action="index.php?action=agregarCategoria" method="POST" enctype="multipart/form-data">
 				<div class="form-group">
 					<div class="col-xs-12 col-md-8 col-md-offset-2">
-						<input class="form-control" type="text" maxlength="40" id="categoria" name="categoria" placeholder="Nombre de la Categoria">
+						<input class="form-control" type="text" maxlength="40" id="categoria" name="categoria" placeholder="Nombre de la Categoria (Minimo 5 Caracteres)">
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-xs-12 col-md-8 col-md-offset-2">
 						<button type="reset" class="btn btn-danger">Restablecer</button>
-						<button type="submit" class="btn btn-success">Agregar Categoria</button>
+						<button type="submit" class="btn btn-success" id="agregarCategoria" disabled="disabled">Agregar Categoria</button>
 					</div>
 				</div>
 			</form>
@@ -54,7 +54,7 @@
 			<form class="form-horizontal" role="form" action="index.php?action=agregarNoticia" method="POST" enctype="multipart/form-data">
 				<div class="form-group">
 					<div class="col-xs-12 col-md-8 col-md-offset-2">
-						<select id="categoria" name="categoria">
+						<select id="id_categoria" name="id_categoria">
 							{if !empty($categorias)}
 								<option value="0">Seleccione la Categoria de la Noticia</option>
 								{foreach $categorias as $categoria}
@@ -68,12 +68,12 @@
 				</div>
 				<div class="form-group">
 					<div class="col-xs-12 col-md-8 col-md-offset-2">
-						<input class="form-control" type="text" maxlength="80" id="titulo" name="titulo" placeholder="Titulo de la Noticia">
+						<input class="form-control" type="text" maxlength="80" id="titulo" name="titulo" placeholder="Titulo de la Noticia (Minimo 10 Caracteres)">
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-xs-12 col-md-8 col-md-offset-2">
-						<textarea class="form-control" maxlength="5000" rows="8" id="contenido" name="contenido" placeholder="Texto de la Noticia"></textarea>
+						<textarea class="form-control" maxlength="5000" rows="8" id="contenido" name="contenido" placeholder="Texto de la Noticia (Minimo 140 Caracteres)"></textarea>
 					</div>
 				</div>
 				<div class="form-group">
@@ -84,7 +84,7 @@
 				<div class="form-group">
 					<div class="col-xs-12 col-md-8 col-md-offset-2">
 						<button type="reset" class="btn btn-danger">Restablecer</button>
-						<button type="submit" class="btn btn-success">Agregar Noticia</button>
+						<button type="submit" class="btn btn-success" id="agregarNoticia" disabled="disabled">Agregar Noticia</button>
 					</div>
 				</div>
 			</form>
@@ -125,3 +125,5 @@
 		</div>
 	</section>
 </article>
+<!--//// JS DEL GESTOR DEL ADMINISTRADOR////-->
+	<script type="text/javascript" src="js/gestorAdmin.js"></script>
