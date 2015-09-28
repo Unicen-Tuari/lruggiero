@@ -4,9 +4,10 @@
 			{foreach $noticias as $noticia}
 				<section>
 					<div class="page-header cabecera-seccion">
-						<h2>{$noticia.titulo}<span>{$noticia.nombreCategoria}</span></h2>
+						<h2>{$noticia.titulo}</h2>
+						<h4>Publicado el {$noticia.fecha} a las {$noticia.hora} UTC-03:00 en {$noticia.nombreCategoria}</h4>
 					</div>
-					<p>{$noticia.contenido}</p>
+					<p>{$noticia.contenido|truncate:500:"...... <button id="noticia" class=\"btn btn-success\" value=\"{$noticia.id}\">Leer Mas</button>"}</p>
 				</section>
 			{/foreach}
 		{else}

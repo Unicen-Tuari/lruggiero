@@ -26,6 +26,19 @@ h2 {
 	text-align: center;
 }
 
+h3 {
+	margin: 25px auto 25px auto;
+	font-size: 24px;
+	text-align: center;
+}
+
+h4 {
+	color: rgb(255, 255, 255);
+	margin: -10px 15px 0 15px;
+	font-size: 14px;
+	text-align: right;
+}
+
 article {
 	background-color: rgba(0, 0, 0, 0.6);
 	border: 3px solid rgb(255, 255, 255);
@@ -157,24 +170,25 @@ section li {
 	border: 2px solid rgb(0, 0, 0);
 }
 
-.tabla-actividades thead tr th, .tabla-actividades .mes {
+.tabla thead tr th, .tabla .mes {
 	font-weight: 800;
 	text-align: center;
 	border: 2px solid rgb(0, 0, 0);
 	background-color: rgb(255, 150, 150);
 }
 
-.tabla-actividades tbody tr td {
+.tabla tbody tr td {
 	border: 2px solid rgb(0, 0, 0);
 	background-color: rgb(255, 255, 255);
 	text-align: center;
+	vertical-align: middle;
 }
 
-.tabla-actividades tfoot {
+.tabla tfoot {
 	background-color: rgba(0, 0, 0, 0);
 }
 
-.tabla-actividades tfoot tr td {
+.tabla tfoot tr td {
 	padding-top: 25px;
 	border-color: rgba(0, 0, 0, 0);
 }
@@ -217,4 +231,11 @@ section li {
 	margin-bottom: 10px;
 	padding-top: 15px;
 	border-radius: 25px;
+}
+
+.boton-admin {
+	float: left;
+	margin: -6px -100px 0 25px;
+	width: 75px;
+	border-radius: 15px;
 }

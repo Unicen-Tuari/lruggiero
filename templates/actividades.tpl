@@ -5,7 +5,7 @@
 			<h2>Cronograma de Actividades</h2>
 		</div>
 		<div class="table-responsive">
-			<table class="table table-bordered table-condensed tabla-actividades">
+			<table class="table table-bordered table-condensed tabla">
 				<thead>
 					<tr>
 						<th>Mes</th>

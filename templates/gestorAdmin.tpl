@@ -4,29 +4,7 @@
 		<div class="page-header cabecera-seccion">
 			<h2>Categorias</h2>
 		</div>
-		<table>
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>CATEGORIA</th>
-				</tr>
-			</thead>
-			<tbody>
-				{if !empty($categorias)}
-					{foreach $categorias as $categoria}
-						<tr>
-							<td>{$categoria.id}</td>
-							<td>{$categoria.nombre}</td>
-						</tr>
-					{/foreach}
-				{else}
-					<tr>
-						<td>No Existen Categorias</td>
-					</tr>
-				{/if}
-			</tbody>
-		</table>
-		<p>Completa el Formulario para Poder Agregar una Nueva Categoria.</p>
+		<h3>Completa el Formulario para Poder Agregar una Nueva Categoria</h3>
 		<div class="gestor-admin">
 			<form class="form-horizontal" role="form" action="index.php?action=agregarCategoria" method="POST" enctype="multipart/form-data">
 				<div class="form-group">
@@ -42,40 +20,36 @@
 				</div>
 			</form>
 		</div>
+		<div class="table-responsive">
+			<table class="table table-bordered table-condensed tabla">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>CATEGORIA</th>
+					</tr>
+				</thead>
+				<tbody>
+					{if !empty($categorias)}
+						{foreach $categorias as $categoria}
+							<tr>
+								<td>{$categoria.id}</td>
+								<td>{$categoria.nombre}</td>
+							</tr>
+						{/foreach}
+					{else}
+						<tr>
+							<td>No Existen Categorias</td>
+						</tr>
+					{/if}
+				</tbody>
+			</table>
+		</div>
 	</section>
 	<section>
 		<div class="page-header cabecera-seccion">
 			<h2>Noticias</h2>
 		</div>
-		<table>
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>ID CATEGORIA</th>
-					<th>TITULO</th>
-					<th>CONTENIDO</th>
-					<th>IMAGEN</th>
-				</tr>
-			</thead>
-			<tbody>
-				{if !empty($noticias)}
-					{foreach $noticias as $noticia}
-						<tr>
-							<td>{$noticia.id}</td>
-							<td>{$noticia.categoria}</td>
-							<td>{$noticia.titulo}</td>
-							<td>{$noticia.contenido}</td>
-							<td>{$noticia.imagen}</td>
-						</tr>
-					{/foreach}
-				{else}
-					<tr>
-						<td>No Existen Noticias</td>
-					</tr>
-				{/if}
-			</tbody>
-		</table>
-		<p>Completa el Formulario para Poder Agregar una Nueva Noticia.</p>
+		<h3>Completa el Formulario para Poder Agregar una Nueva Noticia</h3>
 		<div class="gestor-admin">
 			<form class="form-horizontal" role="form" action="index.php?action=agregarNoticia" method="POST" enctype="multipart/form-data">
 				<div class="form-group">
@@ -94,7 +68,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-xs-12 col-md-8 col-md-offset-2">
-						<input class="form-control" type="text" maxlength="40" id="titulo" name="titulo" placeholder="Titulo de la Noticia">
+						<input class="form-control" type="text" maxlength="80" id="titulo" name="titulo" placeholder="Titulo de la Noticia">
 					</div>
 				</div>
 				<div class="form-group">
@@ -114,6 +88,40 @@
 					</div>
 				</div>
 			</form>
+		</div>
+		<div class="table-responsive">
+			<table class="table table-bordered table-condensed tabla">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>CATEGORIA</th>
+						<th>TITULO</th>
+						<th>CONTENIDO</th>
+						<th>IMAGEN</th>
+						<th>FECHA</th>
+						<th>HORA</th>
+					</tr>
+				</thead>
+				<tbody>
+					{if !empty($noticias)}
+						{foreach $noticias as $noticia}
+							<tr>
+								<td>{$noticia.id}</td>
+								<td>{$noticia.nombreCategoria}</td>
+								<td>{$noticia.titulo}</td>
+								<td><button type="button" class="btn btn-default">Ver</button></td>
+								<td><a href="{$noticia.imagen}" target=""><button type="button" class="btn btn-default">Ver</button></a></td>
+								<td>{$noticia.fecha}</td>
+								<td>{$noticia.hora}</td>
+							</tr>
+						{/foreach}
+					{else}
+						<tr>
+							<td>No Existen Noticias</td>
+						</tr>
+					{/if}
+				</tbody>
+			</table>
 		</div>
 	</section>
 </article>

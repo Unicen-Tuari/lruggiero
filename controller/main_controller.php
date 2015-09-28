@@ -26,6 +26,11 @@
 			$this->view->showInicio($this->model->leerNoticias());
 		}
 
+	// Carga la Seccion de Inicio con la Noticia Indicada
+		function noticia(){
+			$this->view->showInicio($this->model->leerNoticia(LA ID DE LA NOTICIA));
+		}
+
 	// Carga la Seccion de Actividades
 		function actividades(){
 			$this->view->showActividades();

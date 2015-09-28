@@ -80,7 +80,7 @@
 						<div class="collapse navbar-collapse" id="myNavbar">
 							<ul class="nav navbar-nav nav-justified menu-botonera">
 								<li id="inicio" class="active"><a href="#">INICIO</a></li>
-								<li id="gestor-admin"><a href="#">ACTIVIDADES</a></li>
+								<li id="actividades"><a href="#">ACTIVIDADES</a></li>
 								<li id="galeria"><a href="#">GALERIA</a></li>
 								<li id="contacto"><a href="#">CONTACTO</a></li>
 							</ul>
@@ -110,7 +110,8 @@
 			<!-- FOOTER -->
 			<div class="col-xs-12 col-md-10 col-md-offset-1">
 				<footer class="pie-pagina">
-					<p>&copy Todos los Derechos e Izquierdos Reservados</p>
+					<button class="btn btn-default boton-admin" id="gestor-admin">Admin</button>
+					<p>&copy Todos los Derechos Reservados</p>
 				</footer>
 			</div>
 			<!-- FIN FOOTER -->
