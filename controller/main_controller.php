@@ -55,7 +55,6 @@
 		function agregarCategoria(){
 			if(isset($_REQUEST['categoria'])){
 				$this->model->agregarCategoria($_REQUEST['categoria']);
-				header('Location: /');
 			}
 		}
 
@@ -66,7 +65,6 @@
 			   isset($_REQUEST['contenido']) &&
 			   isset($_FILES['imagenes'])){
 				$this->model->agregarNoticia($_REQUEST['id_categoria'], $_REQUEST['titulo'], $_REQUEST['contenido'], $_FILES['imagenes']);
-				header('Location: /');
 			}
 		}
 

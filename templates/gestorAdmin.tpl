@@ -6,7 +6,7 @@
 		</div>
 		<h3>Completa el Formulario para Poder Agregar una Nueva Categoria</h3>
 		<div class="gestor-admin">
-			<form class="form-horizontal" role="form" action="index.php?action=agregarCategoria" method="POST" enctype="multipart/form-data">
+			<form id="form_categoria" class="form-horizontal" role="form">
 				<div class="form-group">
 					<div class="col-xs-12 col-md-8 col-md-offset-2">
 						<input class="form-control" type="text" maxlength="40" id="categoria" name="categoria" placeholder="Nombre de la Categoria (Minimo 5 Caracteres)">
@@ -51,7 +51,7 @@
 		</div>
 		<h3>Completa el Formulario para Poder Agregar una Nueva Noticia</h3>
 		<div class="gestor-admin">
-			<form class="form-horizontal" role="form" action="index.php?action=agregarNoticia" method="POST" enctype="multipart/form-data">
+			<form  id="form_noticia" class="form-horizontal" role="form">
 				<div class="form-group">
 					<div class="col-xs-12 col-md-8 col-md-offset-2">
 						<select id="id_categoria" name="id_categoria">
@@ -109,7 +109,12 @@
 								<td>{$noticia.id}</td>
 								<td>{$noticia.nombreCategoria}</td>
 								<td>{$noticia.titulo}</td>
-								<td>{$noticia.imagenes|count} <button type="button" class="btn btn-default">+</button></td>
+								<td>{if isset($noticia.imagenes)}
+										{$noticia.imagenes|count} 
+									{else}
+										0
+									{/if}
+									<button type="button" class="btn btn-default">+</button></td>
 								<td>{$noticia.fecha}</td>
 								<td>{$noticia.hora}</td>
 								<td><button class="btn btn-default noticia" value="{$noticia.id}">Ver</button></td>
