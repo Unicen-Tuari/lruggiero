@@ -87,7 +87,6 @@
 		function subirImagenes($imagenesTmp){
 			$directorio = 'uploads/imagenes/';
 			$imagenes = array();
-			var_dump($imagenesTmp);
 			foreach($imagenesTmp['tmp_name'] as $key => $value){
 				$imagenes[] = $directorio . uniqid() . $imagenesTmp['name'][$key];
 				move_uploaded_file($value, end($imagenes));
