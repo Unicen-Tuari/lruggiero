@@ -68,5 +68,13 @@
 			}
 		}
 
+	// Agrega Imagenes a una Noticia
+		function agregarImagenes(){
+			if(isset($_REQUEST['id_noticia']) && 
+			   isset($_FILES['imagenesAjax'])){
+				$this->model->agregarImagenes($_REQUEST['id_noticia'], $_FILES['imagenesAjax']);
+			}
+		}
+
 	}
 ?>

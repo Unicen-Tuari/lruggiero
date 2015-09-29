@@ -88,6 +88,9 @@
 					</div>
 				</div>
 			</form>
+			<form id="form_imagen_ajax">
+				<input type="file" id="imagenesAjax" name="imagenesAjax[]" multiple>
+			</form>
 		</div>
 		<div class="table-responsive">
 			<table class="table table-bordered table-condensed tabla">
@@ -114,7 +117,7 @@
 									{else}
 										0
 									{/if}
-									<button type="button" class="btn btn-default">+</button></td>
+									<button class="btn btn-default boton-imagen-ajax" value="{$noticia.id}"><span class="glyphicon glyphicon-plus"></span></button></td>
 								<td>{$noticia.fecha}</td>
 								<td>{$noticia.hora}</td>
 								<td><button class="btn btn-default noticia" value="{$noticia.id}">Ver</button></td>

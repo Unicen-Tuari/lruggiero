@@ -1,12 +1,14 @@
 // Solo Ejecuta Codigo cuando el DOM esta Totalmente Cargado
 $('document').ready(function(){
 // Definicion de Variables
-	var categoria = '';
 	var id_categoria = '';
+	var categoria = '';
+	var id_noticia = '';
 	var titulo = '';
 	var contenido = '';
 	var formCategoria = 'agregarCategoria';
 	var formNoticia = 'agregarNoticia';
+	var formImagenes = 'agregarImagenes';
 	var gestorAdmin = 'gestorAdmin';
 
 // Valida los Inputs del Formulario de Categoria
@@ -61,6 +63,24 @@ $('document').ready(function(){
 		});
 	};
 
+	/* Funcion que Envia los Datos del Formulario
+		de Imagenes Ajax para Ser Procesados */
+	function procesarFormularioImagenesAJax(accion, id_noticia, formData){
+		$.ajax({
+			type: 'POST',
+			data: formData,
+			contentType: false,
+			processData: false,
+			url: 'index.php?action=' + accion + '&id_noticia=' + id_noticia,
+			success: function(){
+						cargarSeccion(gestorAdmin);
+					},
+			error: function(){
+						alert('Error al Procesar el Formulario');
+					}
+		});
+	};
+
 	/* Funcion que Carga en el Contenedor Principal la 
 		Seccion que se le pase como Parametro */
 	function cargarSeccion(seccion){
@@ -87,6 +107,25 @@ $('document').ready(function(){
 	$('#form_noticia').on('submit', function(event){
 		event.preventDefault();
 		procesarFormulario(formNoticia, new FormData(this));
+	});
+
+// Dispara el Prompt de un Input File Oculto para Seleccionar las Imagenes
+	$('.boton-imagen-ajax').on('click', function(event){
+		event.preventDefault();
+		id_noticia = $(this).val();
+		$('#imagenesAjax').click();
+	});
+
+// Dispara el Envio del Formulario para Cargar una Imagen con Ajax
+	$('#imagenesAjax').on('change', function(event){
+		event.preventDefault();
+		$('#form_imagen_ajax').submit();
+	});
+
+// Dispara la Funcion que Envia los Datos del Formulario de Imagen para Ser Procesados
+	$('#form_imagen_ajax').on('submit', function(event){
+		event.preventDefault();
+		procesarFormularioImagenesAJax(formImagenes, id_noticia, new FormData(this));
 	});
 
 });

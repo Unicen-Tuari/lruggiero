@@ -11,6 +11,7 @@
 		public static $ACTION_GESTOR_ADMIN = 'gestorAdmin';
 		public static $ACTION_AGREGAR_CATEGORIA = 'agregarCategoria';
 		public static $ACTION_AGREGAR_NOTICIA = 'agregarNoticia';
+		public static $ACTION_AGREGAR_IMAGENES = 'agregarImagenes';
 	}
 
 ?>

@@ -65,6 +65,24 @@
 			}
 		}
 
+	// Agrega Imagenes a una Noticia
+		function agregarImagenes($id_noticia, $imagenesTmp){
+			$imagenes = '';
+			if($id_noticia && $imagenesTmp['name'][0]){
+				try{
+					$this->db->beginTransaction();
+					$imagenes = $this->subirImagenes($imagenesTmp);
+					foreach($imagenes as $ruta){
+						$queryInsert = $this->db->prepare('INSERT INTO imagen(id_noticia, ruta) VALUES(?, ?)');
+						$queryInsert->execute(array($id_noticia, $ruta));
+					}
+					$this->db->commit();
+				} catch(Exception $e){
+					$this->db->rollBack();
+				}
+			}
+		}
+
 	// Almacena las Imagenes en la Carpeta de Uploads
 		function subirImagenes($imagenesTmp){
 			$directorio = 'uploads/imagenes/';

@@ -54,6 +54,11 @@
 	// Crea una Nueva Noticia
 		$mainController->agregarNoticia();
 
+	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_AGREGAR_IMAGENES){
+
+	// Agrega Imagenes a una Noticia
+		$mainController->agregarImagenes();
+
 	}
 
 ?>
