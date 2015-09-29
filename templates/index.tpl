@@ -4,7 +4,7 @@
 	<title>ENDURO TANDIL</title>
 	<link rel="shortcut icon" type="image/x-icon" href="css/imagenes/favicon.ico"/>
 <!--//// CDN PARA CSS DE BOOTSTRAP ////-->
-	<link rel="stylesheet" type="text/css" href="libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css">
 <!--	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
 <!--//// CSS PROPIO ////-->
 	<link rel="stylesheet" type="text/css" href="css/default.css">
@@ -12,7 +12,7 @@
 	<script type="text/javascript" src="libs/jquery/jquery-1.11.3.min.js"></script>
 <!--	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script> -->
 <!--//// CDN PARA JS DE BOOTSTRAP ////-->
-	<script type="text/javascript" src="libs/bootstrap/bootstrap.min.js"></script>
+	<script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
 <!--	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
 <!--//// JS DEL MENU ////-->
 	<script type="text/javascript" src="js/menu.js"></script>
@@ -111,7 +111,7 @@
 			<div class="col-xs-12 col-md-10 col-md-offset-1">
 				<footer class="pie-pagina">
 					<button class="btn btn-primary boton-admin" id="gestor-admin">Admin</button>
-					<p>&copy Todos los Derechos Reservados</p>
+					<p><span class="glyphicon glyphicon-copyright-mark"></span> 2015 TUPAR</p>
 				</footer>
 			</div>
 			<!-- FIN FOOTER -->

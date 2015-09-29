@@ -96,10 +96,10 @@
 						<th>ID</th>
 						<th>CATEGORIA</th>
 						<th>TITULO</th>
-						<th>N° IMAGENES</th>
+						<th>IMAGENES</th>
 						<th>FECHA</th>
 						<th>HORA</th>
-						<th>VER</th>
+						<th>VISUALIZAR</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -112,7 +112,7 @@
 								<td>{$noticia.imagenes|count} <button type="button" class="btn btn-default">+</button></td>
 								<td>{$noticia.fecha}</td>
 								<td>{$noticia.hora}</td>
-								<td><button type="button" class="btn btn-default">Ver</button></td>
+								<td><button class="btn btn-default noticia" value="{$noticia.id}">Ver</button></td>
 							</tr>
 						{/foreach}
 					{else}
@@ -127,3 +127,5 @@
 </article>
 <!--//// JS DEL GESTOR DEL ADMINISTRADOR////-->
 	<script type="text/javascript" src="js/gestorAdmin.js"></script>
+<!--//// JS DE LAS NOTICIAS ////-->
+	<script type="text/javascript" src="js/noticias.js"></script>
