@@ -15,15 +15,15 @@ $('document').ready(function(){
 						$('#contenedor-principal').html(data);
 					},
 			error: function(){
-						alert('Error al Cargar la Pagina de ' + seccion + 'Con el Elemento' + id);
+						alert('Error al Cargar la Pagina de ' + seccion + 'Con la Noticia' + id);
 					}
 		});
 	};
 
 	// Carga la Seccion de Inicio con la Noticia Indicada
-	$('#noticia').on('click', function(event){
+	$('.noticia').on('click', function(event){
 		event.preventDefault();
-		cargarSeccion(inicio, '2');
+		cargarSeccion(inicio, $(this).val());
 	});
 
 });

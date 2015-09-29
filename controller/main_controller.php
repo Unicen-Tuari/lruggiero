@@ -63,8 +63,9 @@
 		function agregarNoticia(){
 			if(isset($_REQUEST['id_categoria']) &&
 			   isset($_REQUEST['titulo']) &&
-			   isset($_REQUEST['contenido'])){
-				$this->model->agregarNoticia($_REQUEST['id_categoria'], $_REQUEST['titulo'], $_REQUEST['contenido']);
+			   isset($_REQUEST['contenido']) &&
+			   isset($_FILES['imagenes'])){
+				$this->model->agregarNoticia($_REQUEST['id_categoria'], $_REQUEST['titulo'], $_REQUEST['contenido'], $_FILES['imagenes']);
 				header('Location: /');
 			}
 		}

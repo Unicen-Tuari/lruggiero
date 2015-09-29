@@ -78,7 +78,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-xs-12 col-md-8 col-md-offset-2">
-						<input class="btn btn-default" type="file" name="imagen">
+						<input class="btn btn-default" type="file" id="imagenes" name="imagenes[]" multiple>
 					</div>
 				</div>
 				<div class="form-group">
@@ -96,10 +96,10 @@
 						<th>ID</th>
 						<th>CATEGORIA</th>
 						<th>TITULO</th>
-						<th>CONTENIDO</th>
-						<th>IMAGEN</th>
+						<th>N° IMAGENES</th>
 						<th>FECHA</th>
 						<th>HORA</th>
+						<th>VER</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -109,10 +109,10 @@
 								<td>{$noticia.id}</td>
 								<td>{$noticia.nombreCategoria}</td>
 								<td>{$noticia.titulo}</td>
-								<td><button type="button" class="btn btn-default">Ver</button></td>
-								<td><a href="{$noticia.imagen}" target=""><button type="button" class="btn btn-default">Ver</button></a></td>
+								<td>{$noticia.imagenes|count} <button type="button" class="btn btn-default">+</button></td>
 								<td>{$noticia.fecha}</td>
 								<td>{$noticia.hora}</td>
+								<td><button type="button" class="btn btn-default">Ver</button></td>
 							</tr>
 						{/foreach}
 					{else}

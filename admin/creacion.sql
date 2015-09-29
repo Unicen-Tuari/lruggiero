@@ -36,3 +36,25 @@ CREATE TABLE noticia (
 			ON UPDATE CASCADE;
 
 /*#################################################*/
+
+
+
+/*###################################################
+###                 TABLA IMAGEN                  ###
+###################################################*/
+
+CREATE TABLE imagen (
+	id integer NOT NULL AUTO_INCREMENT,
+	id_noticia integer NOT NULL,
+	ruta varchar(100) NOT NULL,
+	CONSTRAINT pk_imagen PRIMARY KEY (id),
+	CONSTRAINT uk_noticia UNIQUE (ruta)
+);
+
+	ALTER TABLE imagen
+	ADD CONSTRAINT fk_imagen_noticia FOREIGN KEY (id_noticia)
+		REFERENCES noticia (id)
+			ON DELETE CASCADE
+			ON UPDATE CASCADE;
+
+/*#################################################*/
