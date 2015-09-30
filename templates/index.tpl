@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ENDURO TANDIL</title>
+	<title>ARK TANDIL</title>
 	<link rel="shortcut icon" type="image/x-icon" href="css/imagenes/favicon.ico"/>
 <!--//// CDN PARA CSS DE BOOTSTRAP ////-->
 	<link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css">
@@ -30,7 +30,6 @@
 						<ol class="carousel-indicators">
 							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 							<li data-target="#myCarousel" data-slide-to="1"></li>
-							<li data-target="#myCarousel" data-slide-to="2"></li>
 						</ol>
 						<!-- FIN BOTONES SLIDES -->
 
@@ -38,15 +37,11 @@
 						<a href="/">
 							<div class="carousel-inner" role="listbox">
 								<div class="item active">
-							 		<img src="css/imagenes/header.jpg" alt="Enduro Tandil 1">
+							 		<img src="css/imagenes/header.jpg" alt="ARK Tandil">
 								</div>
 
 								<div class="item">
-								 	<img src="css/imagenes/header.jpg" alt="Enduro Tandil 2">
-								</div>
-
-								<div class="item">
-									<img src="css/imagenes/header.jpg" alt="Enduro Tandil 3">
+								 	<img src="css/imagenes/header2.jpg" alt="ARK Tandil">
 								</div>
 							</div>
 						</a>
@@ -72,7 +67,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand navbar-toggle menu-home" data-toggle="collapse" href="/">ENDURO TANDIL</a>
+							<a class="navbar-brand navbar-toggle menu-home" data-toggle="collapse" href="/">ARK TANDIL</a>
 						</div>
 						<!-- FIN BOTONES COLAPSADOS -->
 
@@ -80,7 +75,7 @@
 						<div class="collapse navbar-collapse" id="myNavbar">
 							<ul class="nav navbar-nav nav-justified menu-botonera">
 								<li id="inicio" class="active"><a href="#">INICIO</a></li>
-								<li id="actividades"><a href="#">ACTIVIDADES</a></li>
+								<li id="caracteristicas"><a href="#">CARACTERISTICAS</a></li>
 								<li id="galeria"><a href="#">GALERIA</a></li>
 								<li id="contacto"><a href="#">CONTACTO</a></li>
 							</ul>

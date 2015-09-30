@@ -29,9 +29,9 @@
 			$this->smarty->display('noticia.tpl');
 		}
 
-	// Carga la Seccion de Actividades
-		function showActividades(){
-			$this->smarty->display('actividades.tpl');
+	// Carga la Seccion de Caracteristicas
+		function showCaracteristicas(){
+			$this->smarty->display('caracteristicas.tpl');
 		}
 
 	// Carga la Seccion de Galeria

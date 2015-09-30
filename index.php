@@ -24,10 +24,10 @@
 	// Carga la Seccion de Inicio
 		$mainController->inicio();
 
-	}  elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_ACTIVIDADES){
+	}  elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_CARACTERISTICAS){
 
-	// Carga la Seccion de Actividades
-		$mainController->actividades();
+	// Carga la Seccion de Caracteristicas
+		$mainController->caracteristicas();
 
 	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_GALERIA){
 

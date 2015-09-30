@@ -2,7 +2,7 @@
 $('document').ready(function(){
 	// Definicion de Variables con los Nombres de las Secciones
 	var inicio = 'inicio';
-	var actividades = 'actividades';
+	var caracteristicas = 'caracteristicas';
 	var galeria = 'galeria';
 	var contacto = 'contacto';
 	var gestorAdmin = 'gestorAdmin';
@@ -34,12 +34,12 @@ $('document').ready(function(){
 		cargarSeccion(inicio);
 	});
 
-	// Carga la Seccion Actividades al Presionar Actividades en el NAV
-	$('#actividades').on('click', function(event){
+	// Carga la Seccion Caracteristicas al Presionar Caracteristicas en el NAV
+	$('#caracteristicas').on('click', function(event){
 		event.preventDefault();
 		$(".nav").find(".active").removeClass("active");
 		$(this).addClass("active");
-		cargarSeccion(actividades);
+		cargarSeccion(caracteristicas);
 	});
 
 	// Carga la Seccion Galeria al Presionar Galeria en el NAV

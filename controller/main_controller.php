@@ -31,9 +31,9 @@
 			$this->view->showNoticia($this->model->leerNoticia($_REQUEST['id']));
 		}
 
-	// Carga la Seccion de Actividades
-		function actividades(){
-			$this->view->showActividades();
+	// Carga la Seccion de Caracteristicas
+		function caracteristicas(){
+			$this->view->showCaracteristicas();
 		}
 
 	// Carga la Seccion de Galeria
