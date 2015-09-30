@@ -7,7 +7,9 @@ $('document').ready(function(){
 	var titulo = '';
 	var contenido = '';
 	var formCategoria = 'agregarCategoria';
+	var eliminarCategoria = 'eliminarCategoria';
 	var formNoticia = 'agregarNoticia';
+	var eliminarNoticia = 'eliminarNoticia';
 	var formImagenes = 'agregarImagenes';
 	var gestorAdmin = 'gestorAdmin';
 
@@ -32,18 +34,6 @@ $('document').ready(function(){
 			$('#agregarNoticia').attr('disabled', 'disabled');
 		};
 	};
-
-// Dispara la Funcion que Valida los Inputs del Formulario de Categoria
-	$('#categoria').on('input', function(event){
-		event.preventDefault();
-		validarInputsCategoria();
-	});
-
-// Dispara la Funcion que Valida los Inputs del Formulario de Noticia
-	$('#id_categoria, #titulo, #contenido').on('input', function(event){
-		event.preventDefault();
-		validarInputsNoticia();
-	});
 
 	/* Funcion que Envia los Datos del Formulario
 		Indicado para Ser Procesados */
@@ -81,6 +71,33 @@ $('document').ready(function(){
 		});
 	};
 
+	/* Funcion que Envia los Datos del Formulario
+		de Imagenes Ajax para Ser Procesados */
+	function eliminarElemento(accion, id){
+		$.ajax({
+			type: 'GET',
+			dataType: 'HTML',
+			url: 'index.php?action=' + accion + '&id=' + id,
+			success: function(data){
+						if(data == 'errorEliminarCategoria'){
+							$('#contenedor-alerta-categorias').append('<div id="alerta-categorias"></div>');
+							$('#alerta-categorias').addClass('alert alert-danger fade in');
+							$('#alerta-categorias').append('<a id="cerrar-alerta-categoria">&times;</a>');
+							$('#cerrar-alerta-categoria').addClass('close');
+							$('#cerrar-alerta-categoria').attr('href', '#');
+							$('#cerrar-alerta-categoria').attr('data-dismiss', 'alert');
+							$('#cerrar-alerta-categoria').attr('aria-label', 'close');
+							$('#alerta-categorias').append('No se Puede Eliminar la Categoria; Contiene Noticias Asociadas.');
+						} else {
+							cargarSeccion(gestorAdmin);
+						};
+					},
+			error: function(){
+						alert('Error al Enviar la Solicitud');
+					}
+		});
+	};
+
 	/* Funcion que Carga en el Contenedor Principal la 
 		Seccion que se le pase como Parametro */
 	function cargarSeccion(seccion){
@@ -97,16 +114,40 @@ $('document').ready(function(){
 		});
 	};
 
+// Dispara la Funcion que Valida los Inputs del Formulario de Categoria
+	$('#categoria').on('input', function(event){
+		event.preventDefault();
+		validarInputsCategoria();
+	});
+
+// Dispara la Funcion que Valida los Inputs del Formulario de Noticia
+	$('#id_categoria, #titulo, #contenido').on('input', function(event){
+		event.preventDefault();
+		validarInputsNoticia();
+	});
+
 // Dispara la Funcion que Envia los Datos del Formulario de Categoria para Ser Procesados
 	$('#form_categoria').on('submit', function(event){
 		event.preventDefault();
 		procesarFormulario(formCategoria, new FormData(this));
 	});
 
+// Dispara la Funcion que Envia la Solicitud para Eliminar la Categoria
+	$('.eliminar-categoria').on('click', function(event){
+		event.preventDefault();
+		eliminarElemento(eliminarCategoria, $(this).val());
+	});
+
 // Dispara la Funcion que Envia los Datos del Formulario de Noticia para Ser Procesados
 	$('#form_noticia').on('submit', function(event){
 		event.preventDefault();
 		procesarFormulario(formNoticia, new FormData(this));
+	});
+
+// Dispara la Funcion que Envia la Solicitud para Eliminar la Noticia
+	$('.eliminar-noticia').on('click', function(event){
+		event.preventDefault();
+		eliminarElemento(eliminarNoticia, $(this).val());
 	});
 
 // Dispara el Prompt de un Input File Oculto para Seleccionar las Imagenes

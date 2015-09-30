@@ -58,6 +58,11 @@
 			}
 		}
 
+	// Elimina la Categoria Seleccionada
+		function eliminarCategoria(){
+			$this->model->eliminarCategoria($_REQUEST['id']);
+		}
+
 	// Crea una Nueva Noticia
 		function agregarNoticia(){
 			if(isset($_REQUEST['id_categoria']) &&
@@ -66,6 +71,11 @@
 			   isset($_FILES['imagenes'])){
 				$this->model->agregarNoticia($_REQUEST['id_categoria'], $_REQUEST['titulo'], $_REQUEST['contenido'], $_FILES['imagenes']);
 			}
+		}
+
+	// Elimina la Noticia Seleccionada
+		function eliminarNoticia(){
+			$this->model->eliminarNoticia($_REQUEST['id']);
 		}
 
 	// Agrega Imagenes a una Noticia

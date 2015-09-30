@@ -21,7 +21,7 @@ $('document').ready(function(){
 	};
 
 	// Carga la Seccion de Inicio con la Noticia Indicada
-	$('.noticia').on('click', function(event){
+	$('.ver-noticia').on('click', function(event){
 		event.preventDefault();
 		cargarSeccion(inicio, $(this).val());
 	});

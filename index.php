@@ -49,10 +49,20 @@
 	// Crea una Nueva Categoria de Noticias
 		$mainController->agregarCategoria();
 
+	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_ELIMINAR_CATEGORIA && isset($_REQUEST['id'])){
+
+	// Elimina la Categoria Seleccionada
+		$mainController->eliminarCategoria();
+
 	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_AGREGAR_NOTICIA){
 
 	// Crea una Nueva Noticia
 		$mainController->agregarNoticia();
+
+	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_ELIMINAR_NOTICIA && isset($_REQUEST['id'])){
+
+	// Elimina la Noticia Seleccionada
+		$mainController->eliminarNoticia();
 
 	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_AGREGAR_IMAGENES){
 

@@ -32,7 +32,7 @@ CREATE TABLE noticia (
 	ALTER TABLE noticia
 	ADD CONSTRAINT fk_noticia_categoria FOREIGN KEY (id_categoria)
 		REFERENCES categoria (id)
-			ON DELETE CASCADE
+			ON DELETE RESTRICT
 			ON UPDATE CASCADE;
 
 /*#################################################*/

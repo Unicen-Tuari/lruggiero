@@ -21,11 +21,15 @@
 			</form>
 		</div>
 		<div class="table-responsive">
+			<div id="contenedor-alerta-categorias">
+			</div>
 			<table class="table table-bordered table-condensed tabla">
 				<thead>
 					<tr>
 						<th>ID</th>
 						<th>CATEGORIA</th>
+						<th>MODIFICAR</th>
+						<th>ELIMINAR</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -34,6 +38,8 @@
 							<tr>
 								<td>{$categoria.id}</td>
 								<td>{$categoria.nombre}</td>
+								<td><button class="btn btn-default modificar-categoria" value="{$categoria.id}"><span class="glyphicon glyphicon-edit"></span></button></td>
+								<td><button class="btn btn-default eliminar-categoria" value="{$categoria.id}"><span class="glyphicon glyphicon-remove"></span></button></td>
 							</tr>
 						{/foreach}
 					{else}
@@ -54,7 +60,7 @@
 			<form  id="form_noticia" class="form-horizontal" role="form">
 				<div class="form-group">
 					<div class="col-xs-12 col-md-8 col-md-offset-2">
-						<select id="id_categoria" name="id_categoria">
+						<select id="id_categoria" name="id_categoria" class="form-control">
 							{if !empty($categorias)}
 								<option value="0">Seleccione la Categoria de la Noticia</option>
 								{foreach $categorias as $categoria}
@@ -103,6 +109,8 @@
 						<th>FECHA</th>
 						<th>HORA</th>
 						<th>VISUALIZAR</th>
+						<th>MODIFICAR</th>
+						<th>ELIMINAR</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -120,7 +128,9 @@
 									<button class="btn btn-default boton-imagen-ajax" value="{$noticia.id}"><span class="glyphicon glyphicon-plus"></span></button></td>
 								<td>{$noticia.fecha}</td>
 								<td>{$noticia.hora}</td>
-								<td><button class="btn btn-default noticia" value="{$noticia.id}">Ver</button></td>
+								<td><button class="btn btn-default ver-noticia" value="{$noticia.id}"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+								<td><button class="btn btn-default modificar-noticia" value="{$noticia.id}"><span class="glyphicon glyphicon-edit"></span></button></td>
+								<td><button class="btn btn-default eliminar-noticia" value="{$noticia.id}"><span class="glyphicon glyphicon-remove"></span></button></td>
 							</tr>
 						{/foreach}
 					{else}

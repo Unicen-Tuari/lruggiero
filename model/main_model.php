@@ -28,6 +28,21 @@
 			}
 		}
 
+	// Elimina la Categoria Seleccionada
+		function eliminarCategoria($id){
+			if($id){
+				try{
+					$this->db->beginTransaction();
+					$queryDelete = $this->db->prepare('DELETE FROM categoria WHERE id = ?');
+					$queryDelete->execute(array($id));
+					$this->db->commit();
+				} catch(Exception $e){
+					$this->db->rollBack();
+					echo 'errorEliminarCategoria';
+				}
+			}
+		}
+
 	// Lee las Categorias de las Noticias
 		function leerCategorias(){
 			$categorias = array();
@@ -61,6 +76,26 @@
 					$this->db->commit();
 				} catch(Exception $e){
 					$this->db->rollBack();
+				}
+			}
+		}
+
+	// Elimina la Noticia Seleccionada
+		function eliminarNoticia($id){
+			if($id){
+				try{
+					$this->db->beginTransaction();
+					$queryImagenes = $this->db->prepare('SELECT ruta FROM imagen WHERE id_noticia = ?');
+					$queryImagenes->execute(array($id));
+					$queryDelete = $this->db->prepare('DELETE FROM noticia WHERE id = ?');
+					$queryDelete->execute(array($id));
+					while($imagen = $queryImagenes->fetch()) {
+						unlink($imagen['ruta']);
+					}
+					$this->db->commit();
+				} catch(Exception $e){
+					$this->db->rollBack();
+					echo 'errorEliminarNoticia';
 				}
 			}
 		}

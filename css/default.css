@@ -176,6 +176,7 @@ section img {
 .table-responsive {
 	border: 0;
 	padding: 25px 35px 0 35px;
+	margin-bottom: 10px;
 }
 
 .table > thead:first-child > tr:first-child > th,
