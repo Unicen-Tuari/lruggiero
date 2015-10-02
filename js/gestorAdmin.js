@@ -75,7 +75,7 @@ $('document').ready(function(){
 		de Imagenes Ajax para Ser Procesados */
 	function eliminarElemento(accion, id){
 		$.ajax({
-			type: 'GET',
+			type: 'POST',
 			dataType: 'HTML',
 			url: 'index.php?action=' + accion + '&id=' + id,
 			success: function(data){
@@ -135,7 +135,9 @@ $('document').ready(function(){
 // Dispara la Funcion que Envia la Solicitud para Eliminar la Categoria
 	$('.eliminar-categoria').on('click', function(event){
 		event.preventDefault();
-		eliminarElemento(eliminarCategoria, $(this).val());
+		if(confirm('¿Desea Borrar la Categoria con ID ' + $(this).val() + '?')){
+			eliminarElemento(eliminarCategoria, $(this).val());
+		};
 	});
 
 // Dispara la Funcion que Envia los Datos del Formulario de Noticia para Ser Procesados
@@ -147,7 +149,9 @@ $('document').ready(function(){
 // Dispara la Funcion que Envia la Solicitud para Eliminar la Noticia
 	$('.eliminar-noticia').on('click', function(event){
 		event.preventDefault();
-		eliminarElemento(eliminarNoticia, $(this).val());
+		if(confirm('¿Desea Borrar la Noticia con ID ' + $(this).val() + '?')){
+			eliminarElemento(eliminarNoticia, $(this).val());
+		};
 	});
 
 // Dispara el Prompt de un Input File Oculto para Seleccionar las Imagenes
