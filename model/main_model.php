@@ -6,12 +6,27 @@
 // Definicion del Modelo Principal
 	class MainModel{
 		private $db;
-		private $categoria;
-		private $noticia;
 
 		function __construct(){
 			$this->db = new PDO('mysql:host=' . HOST . ';dbname=' . DATABASE, USER, PASS);
 			$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		}
+
+	// Almacena la Consulta Enviada
+		function agregarConsulta($nombre, $nick, $email, $ubicacion, $consulta){
+			if(strlen($nombre) > 1 && filter_var($email, FILTER_VALIDATE_EMAIL) && strlen($consulta) > 49){
+				date_default_timezone_set('America/Argentina/Buenos_Aires');
+				$tracking = uniqid();
+				try{
+					$this->db->beginTransaction();
+					$queryInsert = $this->db->prepare('INSERT INTO consulta(tracking, nombre, nick, email, ubicacion, consulta, fecha, hora) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
+					$queryInsert->execute(array($tracking, $nombre, $nick, $email, $ubicacion, $consulta, date('d/m/y'), date('H:i')));
+					$this->db->commit();
+					echo $tracking;
+				} catch(Exception $e){
+					$this->db->rollBack();
+				}
+			}
 		}
 
 	// Crea una Nueva Categoria de Noticias
@@ -57,10 +72,10 @@
 
 	// Crea una Nueva Noticia
 		function agregarNoticia($id_categoria, $titulo, $contenido, $imagenesTmp){
-			date_default_timezone_set('America/Argentina/Buenos_Aires');
-			$imagenes = '';
-			$idNoticia = '';
 			if($id_categoria && strlen($titulo) > 9 && strlen($contenido) > 139){
+				date_default_timezone_set('America/Argentina/Buenos_Aires');
+				$imagenes = '';
+				$idNoticia = '';
 				try{
 					$this->db->beginTransaction();
 					$queryInsert = $this->db->prepare('INSERT INTO noticia(id_categoria, titulo, contenido, fecha, hora) VALUES(?, ?, ?, ?, ?)');
@@ -102,8 +117,8 @@
 
 	// Agrega Imagenes a una Noticia
 		function agregarImagenes($id_noticia, $imagenesTmp){
-			$imagenes = '';
 			if($id_noticia && $imagenesTmp['name'][0]){
+				$imagenes = '';
 				try{
 					$this->db->beginTransaction();
 					$imagenes = $this->subirImagenes($imagenesTmp);
@@ -153,21 +168,23 @@
 
 	// Lee la Noticia Por ID
 		function leerNoticia($id){
-			$noticia = array();
-			$nombreCategoria = '';
-			$querySelect = $this->db->prepare('SELECT * FROM noticia WHERE id=?');
-			$querySelect->execute(array($id));
-			$noticia = $querySelect->fetch();
-			$queryCategoria = $this->db->prepare('SELECT nombre FROM categoria WHERE id=?');
-			$queryCategoria->execute(array($noticia['id_categoria']));
-			$nombreCategoria = $queryCategoria->fetch();
-			$noticia['nombreCategoria'] = $nombreCategoria['nombre'];
-			$queryImagenes = $this->db->prepare('SELECT ruta FROM imagen WHERE id_noticia=?');
-			$queryImagenes->execute(array($noticia['id']));
-			while($imagen = $queryImagenes->fetch()) {
-				$noticia['imagenes'][] = $imagen['ruta'];
+			if($id){
+				$noticia = array();
+				$nombreCategoria = '';
+				$querySelect = $this->db->prepare('SELECT * FROM noticia WHERE id=?');
+				$querySelect->execute(array($id));
+				$noticia = $querySelect->fetch();
+				$queryCategoria = $this->db->prepare('SELECT nombre FROM categoria WHERE id=?');
+				$queryCategoria->execute(array($noticia['id_categoria']));
+				$nombreCategoria = $queryCategoria->fetch();
+				$noticia['nombreCategoria'] = $nombreCategoria['nombre'];
+				$queryImagenes = $this->db->prepare('SELECT ruta FROM imagen WHERE id_noticia=?');
+				$queryImagenes->execute(array($noticia['id']));
+				while($imagen = $queryImagenes->fetch()) {
+					$noticia['imagenes'][] = $imagen['ruta'];
+				}
+				return $noticia;
 			}
-			return $noticia;
 		}
 
 	}

@@ -1,7 +1,7 @@
 // Solo Ejecuta Codigo cuando el DOM esta Totalmente Cargado
 $('document').ready(function(){
 	// Definicion de Variable
-	var inicio = 'inicio';
+	var noticia = 'noticia';
 
 
 	/* Funcion que Carga en el Contenedor Principal la 
@@ -23,7 +23,7 @@ $('document').ready(function(){
 	// Carga la Seccion de Inicio con la Noticia Indicada
 	$('.ver-noticia').on('click', function(event){
 		event.preventDefault();
-		cargarSeccion(inicio, $(this).val());
+		cargarSeccion(noticia, $(this).val());
 	});
 
 });

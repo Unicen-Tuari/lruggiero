@@ -58,3 +58,25 @@ CREATE TABLE imagen (
 			ON UPDATE CASCADE;
 
 /*#################################################*/
+
+
+
+/*###################################################
+###                TABLA CONSULTA                 ###
+###################################################*/
+
+CREATE TABLE consulta (
+	id integer NOT NULL AUTO_INCREMENT,
+	tracking varchar(13) NOT NULL,
+	nombre varchar(100) NOT NULL,
+	nick varchar(100),
+	email varchar(254) NOT NULL,
+	ubicacion varchar(100),
+	consulta varchar(1000) NOT NULL,
+	fecha varchar(9) NOT NULL,
+	hora varchar(5) NOT NULL,
+	CONSTRAINT pk_consulta PRIMARY KEY (id),
+	CONSTRAINT uk_consulta UNIQUE (tracking)
+);
+
+/*#################################################*/

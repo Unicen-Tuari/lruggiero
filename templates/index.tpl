@@ -75,7 +75,7 @@
 						<div class="collapse navbar-collapse" id="myNavbar">
 							<ul class="nav navbar-nav nav-justified menu-botonera">
 								<li id="inicio" class="active"><a href="#">INICIO</a></li>
-								<li id="caracteristicas"><a href="#">CARACTERISTICAS</a></li>
+								<li id="informacion"><a href="#">INFORMACION</a></li>
 								<li id="galeria"><a href="#">GALERIA</a></li>
 								<li id="contacto"><a href="#">CONTACTO</a></li>
 							</ul>

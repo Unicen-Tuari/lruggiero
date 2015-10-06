@@ -28,12 +28,14 @@
 
 	// Carga la Seccion de Inicio con la Noticia Indicada
 		function noticia(){
-			$this->view->showNoticia($this->model->leerNoticia($_REQUEST['id']));
+			if(isset($_REQUEST['id'])){
+				$this->view->showNoticia($this->model->leerNoticia($_REQUEST['id']));
+			}
 		}
 
-	// Carga la Seccion de Caracteristicas
-		function caracteristicas(){
-			$this->view->showCaracteristicas();
+	// Carga la Seccion de Informacion
+		function informacion(){
+			$this->view->showInformacion();
 		}
 
 	// Carga la Seccion de Galeria
@@ -44,6 +46,17 @@
 	// Carga la Seccion de Contacto
 		function contacto(){
 			$this->view->showContacto();
+		}
+
+	// Almacena la Consulta Enviada
+		function agregarConsulta(){
+			if(isset($_REQUEST['nombre']) &&
+			   isset($_REQUEST['nick']) &&
+			   isset($_REQUEST['email']) &&
+			   isset($_REQUEST['ubicacion']) &&
+			   isset($_REQUEST['consulta'])){
+				$this->model->agregarConsulta($_REQUEST['nombre'], $_REQUEST['nick'], $_REQUEST['email'], $_REQUEST['ubicacion'], $_REQUEST['consulta']);
+			}
 		}
 
 	// Carga la Seccion del Gestor de Administrador
@@ -60,7 +73,9 @@
 
 	// Elimina la Categoria Seleccionada
 		function eliminarCategoria(){
-			$this->model->eliminarCategoria($_REQUEST['id']);
+			if(isset($_REQUEST['id'])){
+				$this->model->eliminarCategoria($_REQUEST['id']);
+			}
 		}
 
 	// Crea una Nueva Noticia
@@ -75,7 +90,9 @@
 
 	// Elimina la Noticia Seleccionada
 		function eliminarNoticia(){
-			$this->model->eliminarNoticia($_REQUEST['id']);
+			if(isset($_REQUEST['id'])){
+				$this->model->eliminarNoticia($_REQUEST['id']);
+			}
 		}
 
 	// Agrega Imagenes a una Noticia

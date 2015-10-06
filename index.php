@@ -5,70 +5,74 @@
 
 // Inclusion del Controlador Principal
 	REQUIRE_ONCE('controller/main_controller.php');
-
-// Resolucion del Enrutamiento
 	$mainController = new MainController();
 
-	if(!array_key_exists(RouterConfig::$ACTION, $_REQUEST) OR $_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_INDEX){
-
+// Resolucion del Enrutamiento
+	if(!array_key_exists(RouterConfig::$ACTION, $_REQUEST)){
 	// Carga el Head, Nav y Footer
 		$mainController->index();
+	} else {
+		switch($_REQUEST[RouterConfig::$ACTION]){
+			case RouterConfig::$ACTION_INICIO:
+			// Carga la Seccion de Inicio
+				$mainController->inicio();
+				break;
 
-	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_INICIO && isset($_REQUEST['id'])){
+			case RouterConfig::$ACTION_NOTICIA:
+			// Carga la Seccion de Inicio con la Noticia Indicada
+				$mainController->noticia();
+				break;
 
-	// Carga la Seccion de Inicio con la Noticia Indicada
-		$mainController->noticia();
+			case RouterConfig::$ACTION_INFORMACION:
+			// Carga la Seccion de Informacion
+				$mainController->informacion();
+				break;
 
-	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_INICIO){
+			case RouterConfig::$ACTION_GALERIA:
+			// Carga la Seccion de Galeria
+				$mainController->galeria();
+				break;
 
-	// Carga la Seccion de Inicio
-		$mainController->inicio();
+			case RouterConfig::$ACTION_CONTACTO:
+			// Carga la Seccion de Contacto
+				$mainController->contacto();
+				break;
 
-	}  elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_CARACTERISTICAS){
+			case RouterConfig::$ACTION_AGREGAR_CONSULTA:
+			// Almacena la Consulta Enviada
+				$mainController->agregarConsulta();
+				break;
 
-	// Carga la Seccion de Caracteristicas
-		$mainController->caracteristicas();
+			case RouterConfig::$ACTION_GESTOR_ADMIN:
+			// Carga la Seccion del Gestor de Administrador
+				$mainController->gestorAdmin();
+				break;
 
-	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_GALERIA){
+			case RouterConfig::$ACTION_AGREGAR_CATEGORIA:
+			// Crea una Nueva Categoria de Noticias
+				$mainController->agregarCategoria();
+				break;
 
-	// Carga la Seccion de Galeria
-		$mainController->galeria();
+			case RouterConfig::$ACTION_ELIMINAR_CATEGORIA:
+			// Elimina la Categoria Seleccionada
+				$mainController->eliminarCategoria();
+				break;
 
-	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_CONTACTO){
+			case RouterConfig::$ACTION_AGREGAR_NOTICIA:
+			// Crea una Nueva Noticia
+				$mainController->agregarNoticia();
+				break;
 
-	// Carga la Seccion de Contacto
-		$mainController->contacto();
+			case RouterConfig::$ACTION_ELIMINAR_NOTICIA:
+			// Elimina la Noticia Seleccionada
+				$mainController->eliminarNoticia();
+				break;
 
-	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_GESTOR_ADMIN){
-
-	// Carga la Seccion del Gestor de Administrador
-		$mainController->gestorAdmin();
-
-	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_AGREGAR_CATEGORIA){
-
-	// Crea una Nueva Categoria de Noticias
-		$mainController->agregarCategoria();
-
-	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_ELIMINAR_CATEGORIA && isset($_REQUEST['id'])){
-
-	// Elimina la Categoria Seleccionada
-		$mainController->eliminarCategoria();
-
-	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_AGREGAR_NOTICIA){
-
-	// Crea una Nueva Noticia
-		$mainController->agregarNoticia();
-
-	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_ELIMINAR_NOTICIA && isset($_REQUEST['id'])){
-
-	// Elimina la Noticia Seleccionada
-		$mainController->eliminarNoticia();
-
-	} elseif ($_REQUEST[RouterConfig::$ACTION] === RouterConfig::$ACTION_AGREGAR_IMAGENES){
-
-	// Agrega Imagenes a una Noticia
-		$mainController->agregarImagenes();
-
+			case RouterConfig::$ACTION_AGREGAR_IMAGENES:
+			// Agrega Imagenes a una Noticia
+				$mainController->agregarImagenes();
+				break;
+		}
 	}
 
 ?>

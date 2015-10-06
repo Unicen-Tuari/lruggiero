@@ -28,15 +28,15 @@ $('document').ready(function(){
 		id_categoria = $('#id_categoria').val();
 		titulo = $('#titulo').val();
 		contenido = $('#contenido').val();
-		if (id_categoria > 0 && titulo.length > 9 && contenido.length > 139){
+		if(id_categoria > 0 && titulo.length > 9 && contenido.length > 139){
 			$('#agregarNoticia').removeAttr('disabled');
 		} else {
 			$('#agregarNoticia').attr('disabled', 'disabled');
 		};
 	};
 
-	/* Funcion que Envia los Datos del Formulario
-		Indicado para Ser Procesados */
+/* Funcion que Envia los Datos del Formulario
+   Indicado para Ser Procesados */
 	function procesarFormulario(accion, formData){
 		$.ajax({
 			type: 'POST',
@@ -53,8 +53,8 @@ $('document').ready(function(){
 		});
 	};
 
-	/* Funcion que Envia los Datos del Formulario
-		de Imagenes Ajax para Ser Procesados */
+/* Funcion que Envia los Datos del Formulario
+   de Imagenes Ajax para Ser Procesados */
 	function procesarFormularioImagenesAJax(accion, id_noticia, formData){
 		$.ajax({
 			type: 'POST',
@@ -71,8 +71,8 @@ $('document').ready(function(){
 		});
 	};
 
-	/* Funcion que Envia los Datos del Formulario
-		de Imagenes Ajax para Ser Procesados */
+/* Funcion que Envia los Datos del Formulario
+   de Imagenes Ajax para Ser Procesados */
 	function eliminarElemento(accion, id){
 		$.ajax({
 			type: 'POST',
@@ -98,8 +98,8 @@ $('document').ready(function(){
 		});
 	};
 
-	/* Funcion que Carga en el Contenedor Principal la 
-		Seccion que se le pase como Parametro */
+/* Funcion que Carga en el Contenedor Principal la 
+   Seccion que se le pase como Parametro */
 	function cargarSeccion(seccion){
 		$.ajax({
 			type: 'GET',
