@@ -51,9 +51,7 @@
 	// Almacena la Consulta Enviada
 		function agregarConsulta(){
 			if(isset($_REQUEST['nombre']) &&
-			   isset($_REQUEST['nick']) &&
 			   isset($_REQUEST['email']) &&
-			   isset($_REQUEST['ubicacion']) &&
 			   isset($_REQUEST['consulta'])){
 				$this->model->agregarConsulta($_REQUEST['nombre'], $_REQUEST['nick'], $_REQUEST['email'], $_REQUEST['ubicacion'], $_REQUEST['consulta']);
 			}
