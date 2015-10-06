@@ -67,13 +67,6 @@ section li {
 	color: rgb(255, 255, 255);
 }
 
-section img {
-	max-width: 90%;
-	margin: 25px auto 25px auto;
-	border-radius: 25px;
-	border: 2px solid rgb(0, 0, 0);
-}
-
 .carousel-indicators .active {
 	background-color: rgb(165, 42, 42);
 }
@@ -166,6 +159,22 @@ section img {
 	padding: 0;
 }
 
+.noticia img {
+	max-width: 95%;
+	margin: 25px auto 25px auto;
+	border-radius: 25px;
+	border: 2px solid rgb(255, 255, 255);
+}
+
+.noticia img:hover {
+	cursor: pointer;
+}
+
+.noticia .carousel {
+	max-width: 95%;
+	margin: 25px auto 25px auto;
+}
+
 .noticia-link {
 	background-color: rgb(165, 42, 42);
 	border-radius: 25px;
@@ -208,23 +217,14 @@ section img {
 }
 
 .galeria img {
-	max-width: 90%;
+	max-width: 95%;
 	margin: 25px auto 25px auto;
-	border-radius: 40%;
+	border-radius: 25px;
 	border: 2px solid rgb(255, 255, 255);
-	-moz-transition: all 2.5s;
-	-webkit-transition: all 2.5s;
-	-o-transition: all 2.5s;
-	transition: all 2.5s;
 }
 
 .galeria img:hover {
 	cursor: pointer;
-	border-radius: 25px;
-	-moz-transition: all 0.5s;
-	-webkit-transition: all 0.5s;
-	-o-transition: all 0.5s;
-	transition: all 0.5s;
 }
 
 .contacto {

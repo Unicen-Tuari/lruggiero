@@ -7,7 +7,7 @@
 						<button class="center-block noticia-link ver-noticia" value="{$noticia.id}"><h2>{$noticia.titulo}</h2></button>
 						<h4>Publicado el {$noticia.fecha} a las {$noticia.hora} UTC-03:00 en {$noticia.nombreCategoria}</h4>
 					</div>
-					<p>{$noticia.contenido|truncate:500:"... <button class=\"btn btn-default ver-noticia\" value=\"{$noticia.id}\">Leer Mas</button>"}</p>
+					<p>{$noticia.contenido|truncate:500:"... <button class=\"btn btn-default ver-noticia\" value=\"{$noticia.id}\">Ver Completa</button>"}</p>
 				</section>
 			{/foreach}
 		{else}
