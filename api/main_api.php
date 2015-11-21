@@ -18,7 +18,7 @@
 			if(method_exists($this, $this->endpoint)){
 				return $this->_pedirStatus($this->{$this->endpoint}($this->args), 200);
 			} else {
-				return $this->_pedirStatus("Error Interno del Endpoint: $this->endpoint", 404);
+				return $this->_pedirStatus('Error Interno del Endpoint: ' . $this->endpoint, 404);
 			}
 		}
 

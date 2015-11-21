@@ -41,6 +41,7 @@
 					$this->db->rollBack();
 				}
 			}
+			return 0;
 		}
 
 	// Modifica el Nombre de una Categoria Existente
@@ -55,6 +56,7 @@
 					$this->db->rollBack();
 				}
 			}
+			return 0;
 		}
 
 	// Elimina la Categoria Seleccionada
@@ -70,6 +72,7 @@
 					echo 'errorEliminarCategoria';
 				}
 			}
+			return 0;
 		}
 
 	// Lee las Categorias Existentes
@@ -107,6 +110,7 @@
 					$this->db->rollBack();
 				}
 			}
+			return 0;
 		}
 
 	// Elimina la Noticia Seleccionada
@@ -127,6 +131,7 @@
 					echo 'errorEliminarNoticia';
 				}
 			}
+			return 0;
 		}
 
 	// Agrega Imagenes a una Noticia
@@ -165,14 +170,14 @@
 			$nombreCategoria = '';
 			$querySelect = $this->db->prepare('SELECT * FROM noticia ORDER BY id DESC');
 			$querySelect->execute();
-			while($noticia = $querySelect->fetch()){
+			while($noticia = $querySelect->fetch(PDO::FETCH_ASSOC)){
 				$queryCategoria = $this->db->prepare('SELECT nombre FROM categoria WHERE id=?');
 				$queryCategoria->execute(array($noticia['id_categoria']));
-				$nombreCategoria = $queryCategoria->fetch();
+				$nombreCategoria = $queryCategoria->fetch(PDO::FETCH_ASSOC);
 				$noticia['nombreCategoria'] = $nombreCategoria['nombre'];
 				$queryImagenes = $this->db->prepare('SELECT ruta FROM imagen WHERE id_noticia=?');
 				$queryImagenes->execute(array($noticia['id']));
-				while($imagen = $queryImagenes->fetch()) {
+				while($imagen = $queryImagenes->fetch(PDO::FETCH_ASSOC)) {
 					$noticia['imagenes'][] = $imagen['ruta'];
 				}
 				$noticias[] = $noticia;
@@ -187,15 +192,17 @@
 				$nombreCategoria = '';
 				$querySelect = $this->db->prepare('SELECT * FROM noticia WHERE id=?');
 				$querySelect->execute(array($id));
-				$noticia = $querySelect->fetch();
-				$queryCategoria = $this->db->prepare('SELECT nombre FROM categoria WHERE id=?');
-				$queryCategoria->execute(array($noticia['id_categoria']));
-				$nombreCategoria = $queryCategoria->fetch();
-				$noticia['nombreCategoria'] = $nombreCategoria['nombre'];
-				$queryImagenes = $this->db->prepare('SELECT ruta FROM imagen WHERE id_noticia=?');
-				$queryImagenes->execute(array($noticia['id']));
-				while($imagen = $queryImagenes->fetch()) {
-					$noticia['imagenes'][] = $imagen['ruta'];
+				if($temp = $querySelect->fetch(PDO::FETCH_ASSOC)){
+					$noticia = $temp;
+					$queryCategoria = $this->db->prepare('SELECT nombre FROM categoria WHERE id=?');
+					$queryCategoria->execute(array($noticia['id_categoria']));
+					$nombreCategoria = $queryCategoria->fetch(PDO::FETCH_ASSOC);
+					$noticia['nombreCategoria'] = $nombreCategoria['nombre'];
+					$queryImagenes = $this->db->prepare('SELECT ruta FROM imagen WHERE id_noticia=?');
+					$queryImagenes->execute(array($noticia['id']));
+					while($imagen = $queryImagenes->fetch(PDO::FETCH_ASSOC)){
+						$noticia['imagenes'][] = $imagen['ruta'];
+					}
 				}
 				return $noticia;
 			}
