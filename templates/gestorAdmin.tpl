@@ -148,6 +148,8 @@
 	</section>
 </article>
 <!--//// JS DEL GESTOR DEL ADMINISTRADOR////-->
+	<script type="text/javascript" src="js/mustache.min.js"></script>
+<!--//// JS DEL GESTOR DEL ADMINISTRADOR////-->
 	<script type="text/javascript" src="js/gestorAdmin.js"></script>
 <!--//// JS DE LAS NOTICIAS ////-->
 	<script type="text/javascript" src="js/noticias.js"></script>

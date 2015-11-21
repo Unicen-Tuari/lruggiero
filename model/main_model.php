@@ -1,7 +1,7 @@
 <?php
 
 // Inclusion del Archivo de Configuracion de la Base de Datos
-	REQUIRE_ONCE('config/db_config.php');
+	REQUIRE_ONCE(__DIR__ . '/../config/db_config.php');
 
 // Definicion del Modelo Principal
 	class MainModel{
@@ -29,13 +29,27 @@
 			}
 		}
 
-	// Crea una Nueva Categoria de Noticias
+	// Crea una Nueva Categoria
 		function agregarCategoria($categoria){
 			if(strlen($categoria) > 4){
 				try{
 					$this->db->beginTransaction();
 					$queryInsert = $this->db->prepare('INSERT INTO categoria(nombre) VALUES(?)');
 					$queryInsert->execute(array($categoria));
+					$this->db->commit();
+				} catch(Exception $e){
+					$this->db->rollBack();
+				}
+			}
+		}
+
+	// Modifica el Nombre de una Categoria Existente
+		function modificarCategoria($id, $categoria){
+			if(strlen($categoria) > 4){
+				try{
+					$this->db->beginTransaction();
+					$queryInsert = $this->db->prepare('UPDATE categoria SET nombre = ? WHERE id = ?');
+					$queryInsert->execute(array($categoria, $id));
 					$this->db->commit();
 				} catch(Exception $e){
 					$this->db->rollBack();
@@ -58,13 +72,13 @@
 			}
 		}
 
-	// Lee las Categorias de las Noticias
+	// Lee las Categorias Existentes
 		function leerCategorias(){
 			$categorias = array();
 			$categoria = '';
 			$querySelect = $this->db->prepare('SELECT * FROM categoria ORDER BY id');
 			$querySelect->execute();
-			while($categoria = $querySelect->fetch()){
+			while($categoria = $querySelect->fetch(PDO::FETCH_ASSOC)){
 				$categorias[] = $categoria;
 			}
 			return $categorias;
