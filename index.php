@@ -18,6 +18,11 @@
 				$mainController->inicio();
 				break;
 
+			case RouterConfig::$ACTION_NOTICIAS:
+				// Carga la Seccion de Inicio con las Noticias Correspondientes a la Categoria Indicada
+				$mainController->noticias();
+				break;
+
 			case RouterConfig::$ACTION_NOTICIA:
 				// Carga la Seccion de Inicio con la Noticia Indicada
 				$mainController->noticia();

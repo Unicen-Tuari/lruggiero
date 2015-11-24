@@ -51,7 +51,7 @@
 				<div class="form-group">
 					<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
 						<select id="id_categoria" name="id_categoria" class="form-control">
-							<option value="0">Seleccione la Categoria de la Noticia</option>
+							<option value="0" selected disabled>Seleccione la Categoria de la Noticia</option>
 							<!-- Categorias -->
 						</select>
 					</div>

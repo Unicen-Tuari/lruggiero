@@ -1,5 +1,22 @@
 <article>
 	<h1>NOTICIAS</h1>
+		<form  id="form_noticia" class="form-horizontal" role="form">
+			<div class="form-group">
+				<div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4">
+					<select id="id_categoria" name="id_categoria" class="form-control">
+						<option selected disabled>Seleccione Para Filtrar Por Categoria</option>
+						<option value="0">Todas</option>
+						{if !empty($categorias)}
+							{foreach $categorias as $categoria}
+								<option value="{$categoria.id}">{$categoria.nombre}</option>
+							{/foreach}
+						{else}
+							<option value="0" disabled>No Existen Categorias</option>
+						{/if}
+					</select>
+				</div>
+			</div>
+		</form>
 		{if !empty($noticias)}
 			{foreach $noticias as $noticia}
 				<section>
@@ -21,3 +38,5 @@
 </article>
 <!--//// JS DE LAS NOTICIAS ////-->
 	<script type="text/javascript" src="js/noticiaFull.js"></script>
+<!--//// JS DE LAS NOTICIAS ////-->
+	<script type="text/javascript" src="js/noticiasCategoria.js"></script>

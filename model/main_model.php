@@ -186,12 +186,17 @@
 		}
 
 		// Lee las Noticias
-		function leerNoticias(){
+		function leerNoticias($id = 0){
 			$noticias = array();
 			$noticia = array();
 			$nombreCategoria = '';
-			$querySelect = $this->db->prepare('SELECT * FROM noticia ORDER BY id DESC');
-			$querySelect->execute();
+			if($id){
+				$querySelect = $this->db->prepare('SELECT * FROM noticia WHERE id_categoria = ? ORDER BY id DESC');
+				$querySelect->execute(array($id));
+			} else {
+				$querySelect = $this->db->prepare('SELECT * FROM noticia ORDER BY id DESC');
+				$querySelect->execute();
+			}
 			while($noticia = $querySelect->fetch(PDO::FETCH_ASSOC)){
 				$queryCategoria = $this->db->prepare('SELECT nombre FROM categoria WHERE id=?');
 				$queryCategoria->execute(array($noticia['id_categoria']));

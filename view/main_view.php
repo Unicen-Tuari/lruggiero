@@ -18,12 +18,20 @@
 		}
 
 		// Carga la Seccion de Inicio
-		function showInicio($noticias){
+		function showInicio($categorias, $noticias){
+			$this->smarty->assign('categorias', $categorias);
 			$this->smarty->assign('noticias', $noticias);
 			$this->smarty->display('inicio.tpl');
 		}
 
-		// Carga la Seccion de Inicio
+		// Carga la Seccion de Inicio con las Noticias Correspondientes a la Categoria Indicada
+		function showNoticias($categorias, $noticias){
+			$this->smarty->assign('categorias', $categorias);
+			$this->smarty->assign('noticias', $noticias);
+			$this->smarty->display('inicio.tpl');
+		}
+
+		// Carga la Seccion de Inicio con la Noticia Indicada
 		function showNoticia($noticia){
 			$this->smarty->assign('noticia', $noticia);
 			$this->smarty->display('noticia.tpl');

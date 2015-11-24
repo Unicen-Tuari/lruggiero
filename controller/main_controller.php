@@ -23,7 +23,14 @@
 
 		// Carga la Seccion de Inicio
 		function inicio(){
-			$this->view->showInicio($this->model->leerNoticias());
+			$this->view->showInicio($this->model->leerCategorias(), $this->model->leerNoticias());
+		}
+
+		// Carga la Seccion de Inicio con las Noticias Correspondientes a la Categoria Indicada
+		function noticias(){
+			if(isset($_REQUEST['id'])){
+				$this->view->showNoticias($this->model->leerCategorias(), $this->model->leerNoticias($_REQUEST['id']));
+			}
 		}
 
 		// Carga la Seccion de Inicio con la Noticia Indicada

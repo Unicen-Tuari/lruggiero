@@ -4,6 +4,7 @@
 	class RouterConfig{
 		public static $ACTION = 'action';
 		public static $ACTION_INICIO = 'inicio';
+		public static $ACTION_NOTICIAS = 'noticias';
 		public static $ACTION_NOTICIA = 'noticia';
 		public static $ACTION_INFORMACION = 'informacion';
 		public static $ACTION_GALERIA = 'galeria';
