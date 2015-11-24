@@ -20,18 +20,25 @@
 				case 'POST':
 					if(isset($_POST['categoria'])){
 						return $this->model->agregarCategoria($_POST['categoria']);
+					} else {
+						return 'Datos Mal Enviados';
 					}
 					break;
 
 				case 'PUT':
-					/*if(isset(EL ID) && isset(LA CATEGORIA)){
-						return $this->model->modificarCategoria(EL ID, LA CATEGORIA);
-					}*/
+					if(count($this->args) === 1 &&
+					   isset($this->formData->categoria)){
+						return $this->model->modificarCategoria($this->args[0], $this->formData->categoria);
+					} else {
+						return 'Datos Mal Enviados';
+					}
 					break;
 
 				case 'DELETE':
 					if(count($this->args) === 1){
 						return $this->model->eliminarCategoria($this->args[0]);
+					} else {
+						return 'Datos Mal Enviados';
 					}
 					break;
 

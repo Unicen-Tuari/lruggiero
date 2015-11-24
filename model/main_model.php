@@ -1,9 +1,9 @@
 <?php
 
-// Inclusion del Archivo de Configuracion de la Base de Datos
+	// Inclusion del Archivo de Configuracion de la Base de Datos
 	REQUIRE_ONCE(__DIR__ . '/../config/db_config.php');
 
-// Definicion del Modelo Principal
+	// Definicion del Modelo Principal
 	class MainModel{
 		private $db;
 
@@ -12,7 +12,7 @@
 			$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}
 
-	// Almacena la Consulta Enviada
+		// Almacena la Consulta Enviada
 		function agregarConsulta($nombre, $nick, $email, $ubicacion, $consulta){
 			if(strlen($nombre) > 1 && filter_var($email, FILTER_VALIDATE_EMAIL) && strlen($consulta) > 49){
 				date_default_timezone_set('America/Argentina/Buenos_Aires');
@@ -29,37 +29,40 @@
 			}
 		}
 
-	// Crea una Nueva Categoria
+		// Crea una Nueva Categoria
 		function agregarCategoria($categoria){
 			if(strlen($categoria) > 4){
 				try{
 					$this->db->beginTransaction();
 					$queryInsert = $this->db->prepare('INSERT INTO categoria(nombre) VALUES(?)');
 					$queryInsert->execute(array($categoria));
+					$ultimoInsertId = $this->db->lastInsertId();
 					$this->db->commit();
+					return $ultimoInsertId;
 				} catch(Exception $e){
 					$this->db->rollBack();
+					return 'error';
 				}
 			}
-			return 0;
 		}
 
-	// Modifica el Nombre de una Categoria Existente
+		// Modifica el Nombre de una Categoria Existente
 		function modificarCategoria($id, $categoria){
 			if(strlen($categoria) > 4){
 				try{
 					$this->db->beginTransaction();
-					$queryInsert = $this->db->prepare('UPDATE categoria SET nombre = ? WHERE id = ?');
-					$queryInsert->execute(array($categoria, $id));
+					$queryUpdate = $this->db->prepare('UPDATE categoria SET nombre = ? WHERE id = ?');
+					$queryUpdate->execute(array($categoria, $id));
 					$this->db->commit();
+					return 0;
 				} catch(Exception $e){
 					$this->db->rollBack();
+					return 'error';
 				}
 			}
-			return 0;
 		}
 
-	// Elimina la Categoria Seleccionada
+		// Elimina la Categoria Seleccionada
 		function eliminarCategoria($id){
 			if($id){
 				try{
@@ -67,15 +70,15 @@
 					$queryDelete = $this->db->prepare('DELETE FROM categoria WHERE id = ?');
 					$queryDelete->execute(array($id));
 					$this->db->commit();
+					return 0;
 				} catch(Exception $e){
 					$this->db->rollBack();
-					echo 'errorEliminarCategoria';
+					return 'error';
 				}
 			}
-			return 0;
 		}
 
-	// Lee las Categorias Existentes
+		// Lee las Categorias Existentes
 		function leerCategorias(){
 			$categorias = array();
 			$categoria = '';
@@ -87,33 +90,50 @@
 			return $categorias;
 		}
 
-	// Crea una Nueva Noticia
+		// Crea una Nueva Noticia
 		function agregarNoticia($id_categoria, $titulo, $contenido, $imagenesTmp){
 			if($id_categoria && strlen($titulo) > 9 && strlen($contenido) > 139){
 				date_default_timezone_set('America/Argentina/Buenos_Aires');
-				$imagenes = '';
-				$idNoticia = '';
 				try{
 					$this->db->beginTransaction();
 					$queryInsert = $this->db->prepare('INSERT INTO noticia(id_categoria, titulo, contenido, fecha, hora) VALUES(?, ?, ?, ?, ?)');
 					$queryInsert->execute(array($id_categoria, $titulo, $contenido, date('d/m/y'), date('H:i')));
-					$idNoticia = $this->db->lastInsertId();
+					$retorno['id'] = $this->db->lastInsertId();
+					$retorno['fecha'] = date('d/m/y');
+					$retorno['hora'] = date('H:i');
 					if($imagenesTmp['name'][0]){
 						$imagenes = $this->subirImagenes($imagenesTmp);
 						foreach($imagenes as $ruta){
 							$queryInsert = $this->db->prepare('INSERT INTO imagen(id_noticia, ruta) VALUES(?, ?)');
-							$queryInsert->execute(array($idNoticia, $ruta));
+							$queryInsert->execute(array($retorno['id'], $ruta));
 						}
 					}
 					$this->db->commit();
+					return $retorno;
 				} catch(Exception $e){
 					$this->db->rollBack();
+					return 'error';
 				}
 			}
-			return 0;
 		}
 
-	// Elimina la Noticia Seleccionada
+		// Modifica una Noticia Existente
+		function modificarNoticia($id, $id_categoria, $titulo, $contenido){
+			if($id_categoria && strlen($titulo) > 9 && strlen($contenido) > 139){
+				try{
+					$this->db->beginTransaction();
+					$queryUpdate = $this->db->prepare('UPDATE noticia SET id_categoria = ?, titulo = ?, contenido = ? WHERE id = ?');
+					$queryUpdate->execute(array($id_categoria, $titulo, $contenido, $id));
+					$this->db->commit();
+					return 0;
+				} catch(Exception $e){
+					$this->db->rollBack();
+					return 'error';
+				}
+			}
+		}
+
+		// Elimina la Noticia Seleccionada
 		function eliminarNoticia($id){
 			if($id){
 				try{
@@ -122,19 +142,19 @@
 					$queryImagenes->execute(array($id));
 					$queryDelete = $this->db->prepare('DELETE FROM noticia WHERE id = ?');
 					$queryDelete->execute(array($id));
-					while($imagen = $queryImagenes->fetch()) {
+					while($imagen = $queryImagenes->fetch(PDO::FETCH_ASSOC)){
 						unlink($imagen['ruta']);
 					}
 					$this->db->commit();
+					return 0;
 				} catch(Exception $e){
 					$this->db->rollBack();
-					echo 'errorEliminarNoticia';
+					return 'error';
 				}
 			}
-			return 0;
 		}
 
-	// Agrega Imagenes a una Noticia
+		// Agrega Imagenes a una Noticia
 		function agregarImagenes($id_noticia, $imagenesTmp){
 			if($id_noticia && $imagenesTmp['name'][0]){
 				$imagenes = '';
@@ -146,15 +166,17 @@
 						$queryInsert->execute(array($id_noticia, $ruta));
 					}
 					$this->db->commit();
+					return 0;
 				} catch(Exception $e){
 					$this->db->rollBack();
+					return 'error';
 				}
 			}
 		}
 
-	// Almacena las Imagenes en la Carpeta de Uploads
+		// Almacena las Imagenes en la Carpeta de Uploads
 		function subirImagenes($imagenesTmp){
-			$directorio = 'uploads/imagenes/';
+			$directorio = '../uploads/imagenes/';
 			$imagenes = array();
 			foreach($imagenesTmp['tmp_name'] as $key => $value){
 				$imagenes[] = $directorio . uniqid() . $imagenesTmp['name'][$key];
@@ -163,7 +185,7 @@
 			return $imagenes;
 		}
 
-	// Lee las Noticias
+		// Lee las Noticias
 		function leerNoticias(){
 			$noticias = array();
 			$noticia = array();
@@ -177,15 +199,17 @@
 				$noticia['nombreCategoria'] = $nombreCategoria['nombre'];
 				$queryImagenes = $this->db->prepare('SELECT ruta FROM imagen WHERE id_noticia=?');
 				$queryImagenes->execute(array($noticia['id']));
+				$noticia['cantidadImagenes'] = 0;
 				while($imagen = $queryImagenes->fetch(PDO::FETCH_ASSOC)) {
 					$noticia['imagenes'][] = $imagen['ruta'];
+					$noticia['cantidadImagenes']++;
 				}
 				$noticias[] = $noticia;
 			}
 			return $noticias;
 		}
 
-	// Lee la Noticia Por ID
+		// Lee la Noticia Por ID
 		function leerNoticia($id){
 			if($id){
 				$noticia = array();
@@ -207,6 +231,5 @@
 				return $noticia;
 			}
 		}
-
 	}
 ?>

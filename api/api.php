@@ -5,11 +5,6 @@
 	// Inclusion de la API Noticia
 	REQUIRE_ONCE('noticia_api.php');
 
-	// Instancia la Clase CategoriaAPI
-	$categoriaAPI = new CategoriaAPI($_REQUEST['parametros']);
-	// Instancia la Clase NoticiaAPI
-	$noticiaAPI = new NoticiaAPI($_REQUEST['parametros']);
-
 	// Extrae el Nombre del Endpoint Solicitado
 	$datos = explode('/', rtrim($_REQUEST['parametros'], '/'));
 	$endpoint = $datos[0];
@@ -17,10 +12,14 @@
 	// Chequea que el Endpoint Solicitado Sea Valido
 	switch($endpoint){
 		case 'categoria':
+			// Instancia la Clase CategoriaAPI
+			$categoriaAPI = new CategoriaAPI($_REQUEST['parametros']);
 			echo $categoriaAPI->procesarAPI();
 			break;
 
 		case 'noticia':
+			// Instancia la Clase NoticiaAPI
+			$noticiaAPI = new NoticiaAPI($_REQUEST['parametros']);
 			echo $noticiaAPI->procesarAPI();
 			break;
 

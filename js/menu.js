@@ -1,11 +1,5 @@
 // Solo Ejecuta Codigo cuando el DOM esta Totalmente Cargado
 $('document').ready(function(){
-	// Definicion de Variables con los Nombres de las Secciones
-	var inicio = 'inicio';
-	var informacion = 'informacion';
-	var galeria = 'galeria';
-	var contacto = 'contacto';
-	var gestorAdmin = 'gestorAdmin';
 
 	/* Funcion que Carga en el Contenedor Principal la 
 		Seccion que se le pase como Parametro */
@@ -24,14 +18,14 @@ $('document').ready(function(){
 	};
 
 	// Carga la Pagina de Inicio al Ingresar o Recargar el Sitio
-	cargarSeccion(inicio);
+	cargarSeccion('inicio');
 
 	// Carga la Seccion Inicio al Presionar Inicio en el NAV
 	$('#inicio').on('click', function(event){
 		event.preventDefault();
 		$(".nav").find(".active").removeClass("active");
 		$(this).addClass("active");
-		cargarSeccion(inicio);
+		cargarSeccion('inicio');
 	});
 
 	// Carga la Seccion Informacion al Presionar Informacion en el NAV
@@ -39,7 +33,7 @@ $('document').ready(function(){
 		event.preventDefault();
 		$(".nav").find(".active").removeClass("active");
 		$(this).addClass("active");
-		cargarSeccion(informacion);
+		cargarSeccion('informacion');
 	});
 
 	// Carga la Seccion Galeria al Presionar Galeria en el NAV
@@ -47,7 +41,7 @@ $('document').ready(function(){
 		event.preventDefault();
 		$(".nav").find(".active").removeClass("active");
 		$(this).addClass("active");
-		cargarSeccion(galeria);
+		cargarSeccion('galeria');
 	});
 
 	// Carga la Seccion Contacto al Presionar Contacto en el NAV
@@ -55,14 +49,14 @@ $('document').ready(function(){
 		event.preventDefault();
 		$(".nav").find(".active").removeClass("active");
 		$(this).addClass("active");
-		cargarSeccion(contacto);
+		cargarSeccion('contacto');
 	});
 
 	// Carga la Seccion Gestor de Noticias al Presionar el Boton Correspondiente
 	$('#gestor-admin').on('click', function(event){
 		event.preventDefault();
 		$(".nav").find(".active").removeClass("active");
-		cargarSeccion(gestorAdmin);
+		cargarSeccion('gestorAdmin');
 	});
 
 });

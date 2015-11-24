@@ -1,0 +1,13 @@
+						<tr class="noticia{{id}}" data-contenido="{{contenido}}">
+							<td>{{id}}</td>
+							<td id="{{id_categoria}}">{{nombreCategoria}}</td>
+							<td>{{titulo}}</td>
+							<td><span class="cantidad">{{cantidadImagenes}}</span>
+								<button class="btn btn-default boton-imagen-ajax" value="{{id}}"><span class="glyphicon glyphicon-plus"></span></button></td>
+							<td>{{fecha}}</td>
+							<td>{{hora}}</td>
+							<td><button class="btn btn-default ver-noticia" value="{{id}}"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+							<td><button class="btn btn-default clonar-noticia" value="{{id}}"><span class="glyphicon glyphicon-edit"></span></button>
+								<button class="btn btn-default modificar-noticia" value="{{id}}" disabled="disabled"><span class="glyphicon glyphicon-saved"></span></button></td>
+							<td><button class="btn btn-default eliminar-noticia" value="{{id}}"><span class="glyphicon glyphicon-remove"></span></button></td>
+						</tr>

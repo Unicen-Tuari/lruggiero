@@ -18,28 +18,36 @@
 		function noticia(){
 			switch($this->method){
 				case 'POST':
-					if(isset($_REQUEST['id_categoria']) &&
-					   isset($_REQUEST['titulo']) &&
-					   isset($_REQUEST['contenido']) &&
+					if(count($this->args) === 0 &&
+					   isset($_POST['id_categoria']) &&
+					   isset($_POST['titulo']) &&
+					   isset($_POST['contenido']) &&
 					   isset($_FILES['imagenes'])){
-						$this->model->agregarNoticia($_REQUEST['id_categoria'], $_REQUEST['titulo'], $_REQUEST['contenido'], $_FILES['imagenes']);
-					} elseif(isset($_REQUEST['id_noticia']) && 
+						return $this->model->agregarNoticia($_POST['id_categoria'], $_POST['titulo'], $_POST['contenido'], $_FILES['imagenes']);
+					} elseif(count($this->args) === 1 && 
 					   isset($_FILES['imagenesAjax'])){
-						$this->model->agregarImagenes($_REQUEST['id_noticia'], $_FILES['imagenesAjax']);
+						return $this->model->agregarImagenes($this->args[0], $_FILES['imagenesAjax']);
+					} else {
+						return 'Datos Mal Enviados';
 					}
 					break;
 
 				case 'PUT':
-					/*if(isset(EL ID CATEGORIA) &&
-					   isset(EL TITULO) &&
-					   isset(EL CONTENIDO)){
-						$this->model->modificarNoticia(EL ID CATEGORIA, EL TITULO, EL CONTENIDO);
-					}*/
+					if(count($this->args) === 1 &&
+					   isset($this->formData->id_categoria) &&
+					   isset($this->formData->titulo) &&
+					   isset($this->formData->contenido)){
+						$this->model->modificarNoticia($this->args[0], $this->formData->id_categoria, $this->formData->titulo, $this->formData->contenido);
+					} else {
+						return 'Datos Mal Enviados';
+					}
 					break;
 
 				case 'DELETE':
 					if(count($this->args) === 1){
 						return $this->model->eliminarNoticia($this->args[0]);
+					} else {
+						return 'Datos Mal Enviados';
 					}
 					break;
 

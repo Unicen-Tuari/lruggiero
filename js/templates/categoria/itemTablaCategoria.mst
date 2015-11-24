@@ -1,0 +1,7 @@
+						<tr class="categoria{{id}}">
+							<td>{{id}}</td>
+							<td>{{nombre}}</td>
+							<td><button class="btn btn-default clonar-categoria" value="{{id}}"><span class="glyphicon glyphicon-edit"></span></button>
+								<button class="btn btn-default modificar-categoria" value="{{id}}" disabled="disabled"><span class="glyphicon glyphicon-saved"></span></button></td>
+							<td><button class="btn btn-default eliminar-categoria" value="{{id}}"><span class="glyphicon glyphicon-remove"></span></button></td>
+						</tr>

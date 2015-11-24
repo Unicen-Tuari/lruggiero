@@ -5,12 +5,14 @@
 		protected $method = '';
 		protected $endpoint = '';
 		protected $args = array();
+		protected $formData = '';
 
 		function __construct($request){
 			header("Content-Type: application/json");
 			$this->args = explode('/', rtrim($request, '/'));
 			$this->endpoint = array_shift($this->args);
 			$this->method = $_SERVER['REQUEST_METHOD'];
+			$this->formData = json_decode(file_get_contents('php://input'));
 		}
 
 		// Funcion que Retorna la Respuesta de lo Solicitado al Endpoint

@@ -1,0 +1,1 @@
+							<option class="categoria{{id}}" value="{{id}}">{{nombre}}</option>

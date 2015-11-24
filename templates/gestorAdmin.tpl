@@ -4,7 +4,7 @@
 		<div class="page-header cabecera-seccion">
 			<h2>Categorias</h2>
 		</div>
-		<h3>Completa el Formulario para Poder Agregar una Nueva Categoria</h3>
+		<h3>Completa el Formulario y Agrega una Categoria o Modifica una Existente</h3>
 		<div class="gestor-admin">
 			<form id="form_categoria" class="form-horizontal" role="form">
 				<div class="form-group">
@@ -22,7 +22,8 @@
 		</div>
 		<div class="table-responsive">
 			<div class="col-xs-12 col-md-10 col-md-offset-1">
-				<div id="contenedor-alerta-categorias">
+				<div id="contenedor-alertas-categoria">
+					<!-- Alertas Categoria -->
 				</div>
 				<table class="table table-bordered table-condensed tabla">
 					<thead>
@@ -33,21 +34,8 @@
 							<th>ELIMINAR</th>
 						</tr>
 					</thead>
-					<tbody>
-						{if !empty($categorias)}
-							{foreach $categorias as $categoria}
-								<tr>
-									<td>{$categoria.id}</td>
-									<td>{$categoria.nombre}</td>
-									<td><button class="btn btn-default modificar-categoria" value="{$categoria.id}"><span class="glyphicon glyphicon-edit"></span></button></td>
-									<td><button class="btn btn-default eliminar-categoria" value="{$categoria.id}"><span class="glyphicon glyphicon-remove"></span></button></td>
-								</tr>
-							{/foreach}
-						{else}
-							<tr>
-								<td>No Existen Categorias</td>
-							</tr>
-						{/if}
+					<tbody id="tablaCategorias">
+						<!-- Categorias -->
 					</tbody>
 				</table>
 			</div>
@@ -63,14 +51,8 @@
 				<div class="form-group">
 					<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
 						<select id="id_categoria" name="id_categoria" class="form-control">
-							{if !empty($categorias)}
-								<option value="0">Seleccione la Categoria de la Noticia</option>
-								{foreach $categorias as $categoria}
-									<option value="{$categoria.id}">{$categoria.nombre}</option>
-								{/foreach}
-							{else}
-								<option value="0">No Existen Categorias</option>
-							{/if}
+							<option value="0">Seleccione la Categoria de la Noticia</option>
+							<!-- Categorias -->
 						</select>
 					</div>
 				</div>
@@ -102,6 +84,9 @@
 		</div>
 		<div class="table-responsive">
 			<div class="col-xs-12 col-md-10 col-md-offset-1">
+				<div id="contenedor-alertas-noticia">
+					<!-- Alertas Noticia -->
+				</div>
 				<table class="table table-bordered table-condensed tabla">
 					<thead>
 						<tr>
@@ -116,40 +101,19 @@
 							<th>ELIMINAR</th>
 						</tr>
 					</thead>
-					<tbody>
-						{if !empty($noticias)}
-							{foreach $noticias as $noticia}
-								<tr>
-									<td>{$noticia.id}</td>
-									<td>{$noticia.nombreCategoria}</td>
-									<td>{$noticia.titulo}</td>
-									<td>{if isset($noticia.imagenes)}
-											{$noticia.imagenes|count} 
-										{else}
-											0
-										{/if}
-										<button class="btn btn-default boton-imagen-ajax" value="{$noticia.id}"><span class="glyphicon glyphicon-plus"></span></button></td>
-									<td>{$noticia.fecha}</td>
-									<td>{$noticia.hora}</td>
-									<td><button class="btn btn-default ver-noticia" value="{$noticia.id}"><span class="glyphicon glyphicon-eye-open"></span></button></td>
-									<td><button class="btn btn-default modificar-noticia" value="{$noticia.id}"><span class="glyphicon glyphicon-edit"></span></button></td>
-									<td><button class="btn btn-default eliminar-noticia" value="{$noticia.id}"><span class="glyphicon glyphicon-remove"></span></button></td>
-								</tr>
-							{/foreach}
-						{else}
-							<tr>
-								<td>No Existen Noticias</td>
-							</tr>
-						{/if}
+					<tbody id="tablaNoticias">
+						<!-- Noticias -->
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</section>
 </article>
-<!--//// JS DEL GESTOR DEL ADMINISTRADOR////-->
-	<script type="text/javascript" src="js/mustache.min.js"></script>
-<!--//// JS DEL GESTOR DEL ADMINISTRADOR////-->
-	<script type="text/javascript" src="js/gestorAdmin.js"></script>
-<!--//// JS DE LAS NOTICIAS ////-->
+<!--//// JS DE MUSTACHE ////-->
+	<script type="text/javascript" src="libs/mustache/mustache.min.js"></script>
+<!--//// JS DE CATEGORIAS ////-->
+	<script type="text/javascript" src="js/categorias.js"></script>
+<!--//// JS DE NOTICIAS ////-->
 	<script type="text/javascript" src="js/noticias.js"></script>
+<!--//// JS DE NOTICIA COMPLETA ////-->
+	<script type="text/javascript" src="js/noticiaFull.js"></script>

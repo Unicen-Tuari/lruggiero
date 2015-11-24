@@ -1,0 +1,4 @@
+					<div class="alert {{tipo}} fade in">
+						<a class="close" href="#" data-dismiss="alert" aria-label="close">×</a>
+						{{mensaje}}
+					</div>

@@ -20,4 +20,4 @@
 		{/if}
 </article>
 <!--//// JS DE LAS NOTICIAS ////-->
-	<script type="text/javascript" src="js/noticias.js"></script>
+	<script type="text/javascript" src="js/noticiaFull.js"></script>
