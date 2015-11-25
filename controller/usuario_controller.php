@@ -31,6 +31,15 @@
 			}
 		}
 
+		// Finaliza la Sesion
+		function cerrarSesion(){
+			session_start();
+			if(isset($_SESSION['usuario'])){
+				session_destroy();
+				$this->loginGestorAdmin();
+			}
+		}
+
 		// Verifica Si la Sesion es Valida
 		function verificarSesion(){
 			session_start();

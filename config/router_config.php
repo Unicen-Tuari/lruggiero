@@ -12,6 +12,7 @@
 		public static $ACTION_AGREGAR_CONSULTA = 'agregarConsulta';
 		public static $ACTION_LOGIN_GESTOR_ADMIN = 'loginGestorAdmin';
 		public static $ACTION_INICIAR_SESION = 'iniciarSesion';
+		public static $ACTION_CERRAR_SESION = 'cerrarSesion';
 	}
 
 ?>

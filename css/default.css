@@ -256,6 +256,11 @@ section li {
 	display: none;
 }
 
+#cerrar-sesion {
+	margin-top: -10px;
+	margin-bottom: 20px;
+}
+
 .boton-admin {
 	font-weight: 900;
 	float: left;

@@ -108,6 +108,7 @@
 			</div>
 		</div>
 	</section>
+	<button class="btn btn-primary center-block" id="cerrar-sesion">Cerrar Sesion</button>
 </article>
 <!--//// JS DE MUSTACHE ////-->
 	<script type="text/javascript" src="libs/mustache/mustache.min.js"></script>
@@ -117,3 +118,5 @@
 	<script type="text/javascript" src="js/noticias.js"></script>
 <!--//// JS DE NOTICIA COMPLETA ////-->
 	<script type="text/javascript" src="js/noticiaFull.js"></script>
+<!--//// JS DE LOGIN ////-->
+	<script type="text/javascript" src="js/login.js"></script>

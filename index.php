@@ -66,6 +66,11 @@
 				// Realiza la Comprobacion de Usuario para Acceder al Gestor de Administrador
 				$usuarioController->iniciarSesion();
 				break;
+
+			case RouterConfig::$ACTION_CERRAR_SESION:
+				// Finaliza la Sesion
+				$usuarioController->cerrarSesion();
+				break;
 		}
 	}
 

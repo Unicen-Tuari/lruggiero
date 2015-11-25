@@ -22,6 +22,20 @@ $('document').ready(function(){
 		});
 	};
 
+	// Funcion que Envia la Solicitud de Cierre de Sesion
+	function cerrarSesion(){
+		$.ajax({
+			type: 'GET',
+			url: 'index.php?action=cerrarSesion',
+			success: function(retorno){
+						$('#contenedor-principal').html(retorno);
+					},
+			error: function(){
+						alert('Error la Cerrar la Sesion.');
+					}
+		});
+	};
+
 	// Funcion que Crea una Alerta del Tipo y Mensaje Indicado y lo Añade al Contenedor de Alertas de Login
 	function crearAlertaLogin(tipo, mensaje){
 		$.ajax({
@@ -56,6 +70,12 @@ $('document').ready(function(){
 	$('#form_login').on('submit', function(event){
 		event.preventDefault();
 		iniciarSesion(new FormData(this));
+	});
+
+	// Dispara la Funcion que Envia la Solicitud para Cerrar Sesion
+	$('#cerrar-sesion').on('click', function(event){
+		event.preventDefault();
+		cerrarSesion();
 	});
 
 });
