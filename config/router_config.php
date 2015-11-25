@@ -10,7 +10,8 @@
 		public static $ACTION_GALERIA = 'galeria';
 		public static $ACTION_CONTACTO = 'contacto';
 		public static $ACTION_AGREGAR_CONSULTA = 'agregarConsulta';
-		public static $ACTION_GESTOR_ADMIN = 'gestorAdmin';
+		public static $ACTION_LOGIN_GESTOR_ADMIN = 'loginGestorAdmin';
+		public static $ACTION_INICIAR_SESION = 'iniciarSesion';
 	}
 
 ?>

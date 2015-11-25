@@ -5,13 +5,13 @@
 				<div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4">
 					<select id="id_categoria" name="id_categoria" class="form-control">
 						<option selected disabled>Seleccione Para Filtrar Por Categoria</option>
-						<option value="0">Todas</option>
 						{if !empty($categorias)}
+							<option value="0">Todas</option>
 							{foreach $categorias as $categoria}
 								<option value="{$categoria.id}">{$categoria.nombre}</option>
 							{/foreach}
 						{else}
-							<option value="0" disabled>No Existen Categorias</option>
+							<option disabled>No Existen Categorias</option>
 						{/if}
 					</select>
 				</div>

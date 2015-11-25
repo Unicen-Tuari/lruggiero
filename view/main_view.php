@@ -52,9 +52,13 @@
 			$this->smarty->display('contacto.tpl');
 		}
 
+		// Carga el Login de la Seccion del Gestor de Administrador
+		function showLoginGestorAdmin(){
+			$this->smarty->display('loginGestorAdmin.tpl');
+		}
+
 		// Carga la Seccion del Gestor de Administrador
-		function showGestorAdmin($noticias){
-			$this->smarty->assign('noticias', $noticias);
+		function showGestorAdmin(){
 			$this->smarty->display('gestorAdmin.tpl');
 		}
 	}

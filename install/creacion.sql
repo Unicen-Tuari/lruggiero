@@ -1,4 +1,22 @@
 /*###################################################
+###                 TABLA USUARIO                 ###
+###################################################*/
+
+CREATE TABLE usuario (
+	id integer NOT NULL AUTO_INCREMENT,
+	usuario varchar(30) NOT NULL,
+	password varchar(255) NOT NULL,
+	CONSTRAINT pk_usuario PRIMARY KEY (id),
+	CONSTRAINT uk_usuario UNIQUE (usuario)
+);
+
+INSERT INTO usuario (usuario, password) VALUES ('lucas', '7c4a8d09ca3762af61e59520943dc26494f8941b');
+
+/*#################################################*/
+
+
+
+/*###################################################
 ###                TABLA CATEGORIA                ###
 ###################################################*/
 

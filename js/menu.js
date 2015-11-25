@@ -56,7 +56,7 @@ $('document').ready(function(){
 	$('#gestor-admin').on('click', function(event){
 		event.preventDefault();
 		$(".nav").find(".active").removeClass("active");
-		cargarSeccion('gestorAdmin');
+		cargarSeccion('loginGestorAdmin');
 	});
 
 });

@@ -18,7 +18,7 @@ $('document').ready(function(){
 	};
 
 	// Dispara la Funcion que Carga las Noticias por Categoria
-	$('#id_categoria').on('input', function(event){
+	$('#id_categoria').on('change', function(event){
 		event.preventDefault();
 		cargarNoticiasPorCategoria($(this).val());
 	});

@@ -10,7 +10,9 @@ $('document').ready(function(){
 			processData: false,
 			url: 'api/noticia',
 			success: function(datos){
-						if(datos === 'error'){
+						if(datos === 'sesionCaducada'){
+							$('#gestor-admin').click();
+						} else if(datos === 'error'){
 							crearAlertaNoticia('alert-danger', 'Error al Crear la Noticia: Titulo Duplicado.');
 						} else {
 							if($('#tablaNoticias .noNoticia')){
@@ -46,7 +48,9 @@ $('document').ready(function(){
 			processData: false,
 			url: 'api/noticia/' + id,
 			success: function(estado){
-						if(estado === 'error'){
+						if(estado === 'sesionCaducada'){
+							$('#gestor-admin').click();
+						} else if(estado === 'error'){
 							crearAlertaNoticia('alert-danger', 'Error al Agregar Imagenes a la Noticia.');
 						} else {
 							cantidadImagenes = parseInt($('#tablaNoticias .noticia' + id + " td:nth-child(4) .cantidad").text());
@@ -66,12 +70,13 @@ $('document').ready(function(){
 		$.ajax({
 			type: 'PUT',
 			data: JSON.stringify(formData),
-			dataType: 'JSON',
 			contentType: false,
 			processData: false,
 			url: 'api/noticia/' + id,
 			success: function(estado){
-						if(estado === 'error'){
+						if(estado === 'sesionCaducada'){
+							$('#gestor-admin').click();
+						} else if(estado === 'error'){
 							crearAlertaNoticia('alert-danger', 'Error al Modificar la Noticia: Nombre Duplicado.');
 						} else {
 							$('#tablaNoticias .noticia' + id + " td:nth-child(2)").text($('#id_categoria option:selected').text());
@@ -94,7 +99,9 @@ $('document').ready(function(){
 			type: 'DELETE',
 			url: 'api/noticia/' + id,
 			success: function(estado){
-						if(estado === 'error'){
+						if(estado === 'sesionCaducada'){
+							$('#gestor-admin').click();
+						} else if(estado === 'error'){
 							crearAlertaNoticia('alert-danger', 'Error al Eliminar la Noticia.');
 						} else {
 							$('.noticia' + id).remove();

@@ -3,8 +3,8 @@
 	// Inclusion del Archivo de Modelo Base
 	REQUIRE_ONCE('main_model.php');
 
-	// Clase de Consultas
-	class ConsultaModel extends MainModel{
+	// Clase de Contacto
+	class ContactoModel extends MainModel{
 
 		// Almacena la Consulta Enviada
 		function agregarConsulta($nombre, $nick, $email, $ubicacion, $consulta){

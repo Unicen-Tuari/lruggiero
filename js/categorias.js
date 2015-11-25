@@ -10,7 +10,9 @@ $('document').ready(function(){
 			processData: false,
 			url: 'api/categoria',
 			success: function(id){
-						if(id === 'error'){
+						if(id === 'sesionCaducada'){
+							$('#gestor-admin').click();
+						} else if(id === 'error'){
 							crearAlertaCategoria('alert-danger', 'Error al Crear la Categoria: Nombre Duplicado.');
 						} else {
 							if($('#tablaCategorias .noCategoria')){
@@ -36,12 +38,13 @@ $('document').ready(function(){
 		$.ajax({
 			type: 'PUT',
 			data: JSON.stringify(formData),
-			dataType: 'JSON',
 			contentType: false,
 			processData: false,
 			url: 'api/categoria/' + id,
 			success: function(estado){
-						if(estado === 'error'){
+						if(estado === 'sesionCaducada'){
+							$('#gestor-admin').click();
+						} else if(estado === 'error'){
 							crearAlertaCategoria('alert-danger', 'Error al Modificar la Categoria: Nombre Duplicado.');
 						} else {
 							$('#tablaCategorias .categoria' + id + " td:nth-child(2)").text(formData.categoria);
@@ -63,7 +66,9 @@ $('document').ready(function(){
 			type: 'DELETE',
 			url: 'api/categoria/' + id,
 			success: function(estado){
-						if(estado === 'error'){
+						if(estado === 'sesionCaducada'){
+							$('#gestor-admin').click();
+						} else if(estado === 'error'){
 							crearAlertaCategoria('alert-danger', 'Error al Eliminar la Categoria: Noticias Asociadas.');
 						} else {
 							$('.categoria' + id).remove();
