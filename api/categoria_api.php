@@ -2,8 +2,9 @@
 
 	// Inclusion de la API Principal
 	REQUIRE_ONCE('main_api.php');
-	// Inclusion del Modelo Principal
-	REQUIRE_ONCE('../model/main_model.php');
+
+	// Inclusion del Modelo Categoria
+	REQUIRE_ONCE('../model/categoria_model.php');
 
 	// Clase de Categorias
 	class CategoriaAPI extends MainAPI{
@@ -11,7 +12,7 @@
 
 		function __construct($request){
 			parent::__construct($request);
-			$this->model = new MainModel();
+			$this->model = new CategoriaModel();
 		}
 
 		// Funcion que Ejecuta la Solicitud Correspondiente Segun el Metodo Indicado
