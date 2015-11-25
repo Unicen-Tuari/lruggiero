@@ -9,9 +9,9 @@
 		// Carga el Login de la Seccion del Gestor de Administrador Si Existe una Sesion Valida
 		function loginGestorAdmin(){
 			if($this->verificarSesion()){
-				$this->view->showGestorAdmin();
+				$this->usuarioView->showGestorAdmin();
 			} else {
-				$this->view->showLoginGestorAdmin();
+				$this->usuarioView->showLoginGestorAdmin();
 			}
 		}
 
@@ -24,7 +24,7 @@
 					$_SESSION['usuario'] = $_POST['usuario'];
 					$_SESSION['creacion'] = time();
 					$_SESSION['validez'] = 600;
-					$this->view->showGestorAdmin();
+					$this->usuarioView->showGestorAdmin();
 				} else {
 					echo 'error';
 				}

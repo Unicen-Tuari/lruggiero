@@ -12,8 +12,11 @@
 	// Inclusion del Modelo Usuario
 	REQUIRE_ONCE('model/usuario_model.php');
 
-	// Inclusion de la Vista Principal
-	REQUIRE_ONCE('view/main_view.php');
+	// Inclusion de la Vista de Navegacion
+	REQUIRE_ONCE('view/navegacion_view.php');
+
+	// Inclusion de la Vista de Usuario
+	REQUIRE_ONCE('view/usuario_view.php');
 
 	// Definicion del Controlador Principal
 	class MainController{
@@ -21,14 +24,16 @@
 		protected $noticiaModel;
 		protected $contactoModel;
 		protected $usuarioModel;
-		protected $view;
+		protected $navegacionView;
+		protected $usuarioView;
 
 		function __construct(){
 			$this->categoriaModel = new CategoriaModel();
 			$this->noticiaModel = new NoticiaModel();
 			$this->contactoModel = new ContactoModel();
 			$this->usuarioModel = new UsuarioModel();
-			$this->view = new MainView();
+			$this->navegacionView = new NavegacionView();
+			$this->usuarioView = new UsuarioView();
 		}
 	}
 ?>

@@ -8,41 +8,41 @@
 
 		// Carga el Head, Nav y Footer
 		function index(){
-			$this->view->showIndex();
+			$this->navegacionView->showIndex();
 		}
 
 		// Carga la Seccion de Inicio
 		function inicio(){
-			$this->view->showInicio($this->categoriaModel->leerCategorias(), $this->noticiaModel->leerNoticias());
+			$this->navegacionView->showInicio($this->categoriaModel->leerCategorias(), $this->noticiaModel->leerNoticias());
 		}
 
 		// Carga la Seccion de Inicio con las Noticias Correspondientes a la Categoria Indicada
 		function noticias(){
 			if(isset($_REQUEST['id'])){
-				$this->view->showNoticias($this->categoriaModel->leerCategorias(), $this->noticiaModel->leerNoticias($_REQUEST['id']));
+				$this->navegacionView->showNoticias($this->categoriaModel->leerCategorias(), $this->noticiaModel->leerNoticias($_REQUEST['id']));
 			}
 		}
 
 		// Carga la Seccion de Inicio con la Noticia Indicada
 		function noticia(){
 			if(isset($_REQUEST['id'])){
-				$this->view->showNoticia($this->noticiaModel->leerNoticia($_REQUEST['id']));
+				$this->navegacionView->showNoticia($this->noticiaModel->leerNoticia($_REQUEST['id']));
 			}
 		}
 
 		// Carga la Seccion de Informacion
 		function informacion(){
-			$this->view->showInformacion();
+			$this->navegacionView->showInformacion();
 		}
 
 		// Carga la Seccion de Galeria
 		function galeria(){
-			$this->view->showGaleria();
+			$this->navegacionView->showGaleria();
 		}
 
 		// Carga la Seccion de Contacto
 		function contacto(){
-			$this->view->showContacto();
+			$this->navegacionView->showContacto();
 		}
 	}
 ?>
